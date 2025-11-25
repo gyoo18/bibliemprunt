@@ -12,6 +12,10 @@
       <ATT name="Name"><![CDATA[bibliemprunt]]></ATT>
       <ATT name="status">1970354901745664</ATT>
     </ATTRIBUTES>
-    <DEPENDENCIES></DEPENDENCIES>
+    <DEPENDENCIES>
+      <COMP relation="OwnedBehavior">
+        <COMPID name="Interaction" mc="Standard.Interaction" uid="6c505ccf-0ea5-496f-8281-cb747a2bf75b"/>
+      </COMP>
+    </DEPENDENCIES>
   </OBJECT>
 </EXT>
