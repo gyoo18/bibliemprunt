@@ -16,6 +16,20 @@
       <COMP relation="OwnedBehavior">
         <COMPID name="Interaction" mc="Standard.Interaction" uid="6c505ccf-0ea5-496f-8281-cb747a2bf75b"/>
       </COMP>
+      <COMP relation="OwnedElement">
+        <COMPID name="Bibliothèque" mc="Standard.Class" uid="734bcfc5-4ac8-4a2f-a323-035e0bcf918c"/>
+        <COMPID name="Livre" mc="Standard.Class" uid="f250c4f8-3bb4-46d9-8b91-7e0faefc6600"/>
+        <COMPID name="Borne d'emprunt" mc="Standard.Class" uid="e323486b-6fae-4710-be7a-54c8328b909a"/>
+        <COMPID name="Banque de livres" mc="Standard.Class" uid="fc808c4d-7936-484b-ae3b-44c72960a04a"/>
+        <COMPID name="Client" mc="Standard.Class" uid="c4018c32-c80f-490b-a0ed-55c8100e92e5"/>
+        <COMPID name="Compte Client" mc="Standard.Class" uid="4d1e60d9-f201-43fa-adc9-7b4d2eac1b16"/>
+        <COMPID name="Banque d'emprunts" mc="Standard.Class" uid="f378a06e-b3bb-43a0-a8a0-a3ff48649df9"/>
+        <COMPID name="Emprunt" mc="Standard.Class" uid="8a52eef6-dcad-4213-93d8-beccf9853a1c"/>
+        <COMPID name="Banque Clients" mc="Standard.Class" uid="512db497-d168-4adb-91d0-bc6bcbc4054d"/>
+      </COMP>
+      <COMP relation="Product">
+        <COMPID name="Modèle du domaine" mc="Standard.ClassDiagram" uid="b3469607-368f-4fbb-aa57-91b6a1c430bf"/>
+      </COMP>
     </DEPENDENCIES>
   </OBJECT>
 </EXT>
