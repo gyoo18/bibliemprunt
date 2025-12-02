@@ -778,7 +778,7 @@
         </OBJECT>
       </COMP>
       <COMP relation="Product">
-        <COMPID name="Diagramme de séquence Interaction" mc="Standard.SequenceDiagram" uid="08f89ebe-b2f2-401c-bbf5-54bad30d73ba"/>
+        <COMPID name="Cas utilisation emprunt" mc="Standard.SequenceDiagram" uid="08f89ebe-b2f2-401c-bbf5-54bad30d73ba"/>
       </COMP>
     </DEPENDENCIES>
   </OBJECT>
