@@ -3,8 +3,12 @@
  */
 package bibliemprunt;
 
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
@@ -12,40 +16,77 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.nio.file.Files;
+import java.util.HashMap;
+import java.util.Map;
 import java.awt.Desktop;
 
 public class App {
 
-    private final static int interfacPort = 8080;
-    private final static String interfaceURL = "http://127.0.0.1:" + interfacPort;
+    private enum HTTPRequêteType {
+        POST,
+        GET,
+        HEAD,
+        PUT,
+        DELETE,
+        CONNECT,
+        OPTIONS,
+        TRACE,
+        PATCH
+    }
 
-    public static void main(String[] args) throws IOException, URISyntaxException {
+    private static class HTTPMessage {
+        public HTTPRequêteType requêteType;
+        public String chemin;
+    }
+
+    private final static int interfacePort = 8080;
+    private final static String interfaceURL = "http://127.0.0.1:" + interfacePort;
+
+    private static ServerSocket serverSocket;
+    private static Socket socket;
+    private static BufferedReader socketInStrings;
+    private static BufferedWriter socketOutStrings;
+    private static BufferedInputStream socketInBytes;
+    private static BufferedOutputStream socketOutBytes;
+
+    private static HashMap<String, String> mimeTypeExtensionsSupportées = new HashMap<>(Map.of(
+            "html", "text/html",
+            "css", "text/css",
+            "js", "application/javascript",
+            "json", "application/json",
+            "ico", "image/x-icon",
+            "png", "image/png",
+            "jpeg", "image/jpeg",
+            "jpg", "image/jpg",
+            "gif", "image/gif",
+            "pdf", "image/pdf"));
+
+    public static void main(String[] args) throws IOException, URISyntaxException, InterruptedException {
         System.out.println("Hello World!");
 
-        lancerNavigateur();
+        // lancerNavigateur();
 
-        ServerSocket serverSocket = new ServerSocket(8080);
-        Socket socket = serverSocket.accept();
+        serverSocket = new ServerSocket(interfacePort);
 
-        BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-        BufferedWriter out = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
-        String clientInputLine;
-        while ((clientInputLine = in.readLine()) != null) {
-            if (clientInputLine.isEmpty()) {
-                break;
+        while (true) {
+            socket = serverSocket.accept();
+
+            socketInStrings = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+            socketOutStrings = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
+            socketInBytes = new BufferedInputStream(socket.getInputStream());
+            socketOutBytes = new BufferedOutputStream(socket.getOutputStream());
+
+            HTTPMessage message = recevoirMessage();
+            boolean messageGéré = gérerMessage(message);
+            if (!messageGéré) {
+                envoyerMessage("{\"erreur\":\"Une erreur s'est produite du côté serveur.\"}", "application/json", 500);
             }
+
+            socket.close();
         }
-        String body = "<!DOCTYPE html><html><body>Hello World!</body></html>";
-        out.write("HTTP/1.0 200 OK\n");
-        // out.write("Date: 2025-12-01 23:21:30\r\n");
-        out.write("Server: Custom Server\n");
-        out.write("Content-Type: text/html\n");
-        out.write("Content-Length: " + body.length() + "\n");
-        out.write("\n");
-        out.write(body);
-        out.flush();
-        socket.close();
-        serverSocket.close();
+
+        // serverSocket.close();
 
     }
 
@@ -157,4 +198,97 @@ public class App {
         }
 
     }
+
+    private static boolean gérerMessage(HTTPMessage message) throws IOException {
+        if (message.requêteType == HTTPRequêteType.GET) {
+            File fichier = new File("app/src/main/gui" + message.chemin);
+            if (fichier.exists() && !fichier.isDirectory()) {
+                String[] cheminParts = message.chemin.split("\\.");
+                String extension = cheminParts[1];
+                String mimeType = mimeTypeExtensionsSupportées.get(extension);
+                /*
+                 * "html", "text/html",
+                 * "css", "text/css",
+                 * "js", "application/javascript",
+                 * "json", "application/json",
+                 * "ico", "image/x-icon",
+                 * "png", "image/png",
+                 * "jpeg", "image/jpeg",
+                 * "jpg", "image/jpg",
+                 * "gif", "image/gif",
+                 * "pdf", "image/pdf"));
+                 */
+                if (mimeType.compareTo("text/html") == 0 || mimeType.compareTo("text/css") == 0
+                        || mimeType.compareTo("text/javascript") == 0) {
+                    String fichierContenu = Files.readString(fichier.toPath());
+                    envoyerMessage(fichierContenu, mimeType, 200);
+                    return true;
+                } else {
+                    byte[] données = Files.readAllBytes(fichier.toPath());
+                    envoyerMessage(données, mimeType, 200);
+                }
+            } else {
+                envoyerMessage("<!DOCTYPE html><html><body><h1>404 Le fichier demandé n'existe pas.</h1></body></html>",
+                        "text/html", 404);
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    private static void envoyerMessage(String message, String mimeType, int codeRéponse) throws IOException {
+        socketOutStrings.write("HTTP/1.0 " + codeRéponse + "\n");
+        socketOutStrings.write("Content-Type: " + mimeType + "\n");
+        socketOutStrings.write("Content-Length: " + message.length() + "\n");
+        socketOutStrings.write("\n");
+        socketOutStrings.write(message);
+        socketOutStrings.flush();
+    }
+
+    private static void envoyerMessage(byte[] message, String mimeType, int codeRéponse) throws IOException {
+        socketOutStrings.write("HTTP/1.0 " + codeRéponse + "\n");
+        socketOutStrings.write("Content-Type: " + mimeType + "\n");
+        socketOutStrings.write("Content-Length: " + message.length + "\n");
+        socketOutStrings.write("\n");
+        socketOutStrings.flush();
+        socketOutBytes.write(message);
+        socketOutBytes.flush();
+    }
+
+    private static HTTPMessage recevoirMessage() throws IOException, InterruptedException {
+        String[] lignes = new String[20];
+        int nLignes = 0;
+        String ligne;
+        while (nLignes == 0) {
+            ligne = socketInStrings.readLine();
+            if (ligne == null) {
+                Thread.sleep(100);
+                continue;
+            }
+
+            while (!ligne.isEmpty()) {
+                System.out.println(ligne);
+                lignes[nLignes] = ligne;
+                nLignes++;
+                ligne = socketInStrings.readLine();
+            }
+            break;
+        }
+
+        return interpréterMessage(lignes, nLignes);
+    }
+
+    private static HTTPMessage interpréterMessage(String[] lignes, int nLignes) {
+        HTTPRequêteType requêteType = HTTPRequêteType.valueOf(lignes[0].split(" ")[0]);
+        String chemin = lignes[0].split(" ")[1];
+        HTTPMessage message = new HTTPMessage();
+        message.requêteType = requêteType;
+        message.chemin = chemin;
+        if (chemin.compareTo("/") == 0) {
+            message.chemin = "/index.html";
+        }
+        return message;
+    }
+
 }

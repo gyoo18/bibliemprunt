@@ -1,0 +1,191 @@
+html{
+    height: 100vh;
+    overflow: hidden;
+}
+
+body{
+    display: grid;
+    padding: 0;
+    margin: -3em;
+    font-family: "Fira Sans", sans-serif;
+    height: calc(100vh + 6em);
+}
+
+#main{
+    display: flex;
+    flex-direction: column;
+    justify-content: cent;
+    align-items: center;
+    
+    z-index: 2000;
+    grid-column: 1;
+    grid-row: 1;
+}
+
+#arrière-plan{
+    margin: 0;
+    padding: 0;
+    background-image: url("../assets/plantes.jpg");
+    background-size:cover;
+    background-attachment: fixed;
+    filter: blur(6px) saturate(1) hue-rotate(100deg) brightness(1.2);
+    z-index: 1000;
+    grid-column: 1;
+    grid-row: 1;
+    box-shadow: 0 0 10em #0005 inset;
+}
+
+#arrière-plan-couleur {
+    margin: 0;
+    padding: 0;
+    width:100%;
+    height: 100%;
+    background-image: linear-gradient(45deg, hsl(130, 48%, 41%), hsl(26, 100%, 95%));
+    filter: hue-rotate(-100deg);
+    mix-blend-mode: multiply;
+}
+
+h1{
+    text-align: center;
+    margin: 1em;
+    font-size: 5em;
+
+    color: #175f06;
+}
+
+div{
+    margin: 3em;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 2em;
+    width: 50%;
+    font-size: larger;
+
+    background-image: linear-gradient(45deg, #0d6d00, #a6f862);
+}
+
+label{
+    text-align: center;
+    margin: 0.5em;
+    font-weight: bold;
+    font-size: larger;
+    max-width: 20em;
+}
+
+input{
+    padding: 0.5em;
+    margin: 0.25em;
+    border-radius: 0.75em;
+    border: 0px solid black;
+    box-shadow: 0 0.25em 0.5em #0002;
+    background: #aeff9e;
+    max-width: 30em;
+    min-width: 10em;
+    font-size: 1em;
+    text-align: center;
+}
+
+#soumettre{
+    margin: 0.5em;
+    padding: 0.75em;
+    font-size: larger;
+    cursor: pointer;
+    max-width: 30em;
+    min-width: 10em;
+    background-image: linear-gradient(10deg, rgb(0, 115, 209), aqua);
+    font-weight: bold;
+}
+
+#soumettre:hover {
+    background-image: linear-gradient(10deg, rgb(17, 161, 228), rgb(0, 166, 243));
+}
+
+.boîte-flottante{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin: 0em;
+    padding: 0;
+    height: 50vh;
+    width: 75vw;
+    max-width: 65em;
+
+    box-shadow: 0 0.5em 1em #0003;
+    border-radius: 2.5em;
+
+    overflow: hidden;
+}
+
+@keyframes image-scroll {
+    from {
+        background-position-x: 0%;
+    }
+
+    to {
+        background-position-x: 100%;
+    }
+}
+
+#image{
+    display: grid;
+    width:50%;
+    margin: 0;
+    padding:0;
+    background-image: url("../assets/biblio.jpg");
+    background-size: cover;
+
+    box-shadow: 0 0 5em #0008 inset;
+
+    align-items: center;
+
+    animation-name: image-scroll;
+    animation-duration: 30s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate-reverse;
+}
+
+#image-filtre{
+    margin: 0;
+    width:100%;
+    height: 100%;
+    background-image: linear-gradient(45deg, rgb(223, 79, 35), rgb(255, 240, 216));
+    mix-blend-mode: color;
+
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.popup-couche{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    grid-column: 1;
+    grid-row: 1;
+    z-index: 3000;
+}
+
+.popup{
+    display: flex;
+    flex-direction: column;
+    align-items: right;
+    background-color: #FFF9;
+    padding: 1em;
+    border-radius: 2em;
+
+    font-size: 2em;
+
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+.popup button{
+    align-self: right;
+    max-width: fit-content;
+}
