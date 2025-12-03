@@ -1,4 +1,4 @@
-package models;
+package bibliemprunt.models;
 
 public class Livre {
     private int RFID;
