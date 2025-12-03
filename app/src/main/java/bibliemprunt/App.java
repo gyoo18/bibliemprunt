@@ -3,9 +3,158 @@
  */
 package bibliemprunt;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.net.ServerSocket;
+import java.net.Socket;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.awt.Desktop;
+
 public class App {
 
-    public static void main(String[] args) {
+    private final static int interfacPort = 8080;
+    private final static String interfaceURL = "http://127.0.0.1:" + interfacPort;
+
+    public static void main(String[] args) throws IOException, URISyntaxException {
         System.out.println("Hello World!");
+
+        lancerNavigateur();
+
+        ServerSocket serverSocket = new ServerSocket(8080);
+        Socket socket = serverSocket.accept();
+
+        BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+        BufferedWriter out = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
+        String clientInputLine;
+        while ((clientInputLine = in.readLine()) != null) {
+            if (clientInputLine.isEmpty()) {
+                break;
+            }
+        }
+        String body = "<!DOCTYPE html><html><body>Hello World!</body></html>";
+        out.write("HTTP/1.0 200 OK\n");
+        // out.write("Date: 2025-12-01 23:21:30\r\n");
+        out.write("Server: Custom Server\n");
+        out.write("Content-Type: text/html\n");
+        out.write("Content-Length: " + body.length() + "\n");
+        out.write("\n");
+        out.write(body);
+        out.flush();
+        socket.close();
+        serverSocket.close();
+
+    }
+
+    private static void lancerNavigateur() throws URISyntaxException, IOException {
+        // Première option : l'API Desktop de java est capable de
+        // lancer la fenêtre par défaut de l'utilisateur.
+        // Devrait fonctionner pour : Windows, Mac, Linux sur Gnome
+        if (Desktop.isDesktopSupported()) {
+            Desktop.getDesktop().browse(new URI(interfaceURL));
+            return;
+        }
+
+        String nomSE = System.getProperty("os.name");
+        if (nomSE.compareTo("Linux") == 0) {
+            // Certaines distributions Linux ne viennent pas avec Gnome par défaut.
+            // Deuxième option : utiliser la commande xdg-open qui vient avec xdg-utils
+            // Devrait fonctionner pour : Toute distribution basée sur Ubuntu
+
+            // Détecter xdg-open
+            Runtime runtime = Runtime.getRuntime();
+            Process which = runtime.exec(new String[] { "which", "xdg-open" });
+            if (which.exitValue() == 0) {
+                Process xdgOpen = runtime.exec(new String[] { "xdg-open", interfaceURL });
+                if (xdgOpen.exitValue() == 0) {
+                    return;
+                }
+            }
+
+            // Certaines distributions ne viennent pas avec xdg-utils
+            // Troisième option : utiliser une des diverses commandes qui pourraient être
+            // sur le système
+
+            String[] gestionnairesNavigateurs = new String[] { "open", "www-open", "x-www-open", "gnome-open",
+                    "sensible-browser" };
+            for (int i = 0; i < gestionnairesNavigateurs.length; i++) {
+                which = runtime.exec(new String[] { "which", "sensible-browser" });
+                if (which.exitValue() == 0) {
+                    if (i == 3) {
+                        System.err.println("Pouvez-vous me dire comment vous avez gnome-open, mais pas GNOME?");
+                    }
+                    Process proc = runtime
+                            .exec(new String[] { gestionnairesNavigateurs[i], interfaceURL });
+                    if (proc.exitValue() == 0) {
+                        return;
+                    }
+                }
+            }
+
+            // Imaginons que rien de tout cela ne fonctionne...
+            // Quatrième option : utiliser la variable d'environnement $BROWSER
+
+            String navigateurEnv = System.getenv("BROWSER");
+            if (navigateurEnv != null) {
+                which = runtime.exec(new String[] { "which", navigateurEnv });
+                if (which.exitValue() == 0) {
+                    Process browser = runtime.exec(new String[] { "$BROWSER", interfaceURL });
+                    if (browser.exitValue() == 0) {
+                        return;
+                    }
+                }
+            }
+
+            // Peut-être python peut-il nous aider?
+            // Cinquième option : lancer python3 -m webbrowser
+            String pythonCommande = null;
+            if (runtime.exec(new String[] { "which", "python3" }).exitValue() == 0) {
+                pythonCommande = "python3";
+            } else if (runtime.exec(new String[] { "which", "python" }).exitValue() == 0) {
+                pythonCommande = "python";
+            } else if (runtime.exec(new String[] { "which", "py" }).exitValue() == 0) {
+                pythonCommande = "py";
+            }
+
+            if (pythonCommande != null) {
+                Process pythonWeb = runtime
+                        .exec(new String[] { pythonCommande, "-m", "webbrowser", interfaceURL });
+                if (pythonWeb.exitValue() == 0) {
+                    return;
+                }
+            }
+
+            // Dernier recours : on teste tous les navigateurs majeurs
+            String[] navigateursConnus = new String[] { "firefox", "mozilla", "epiphany", "konqueror",
+                    "netscape", "opera", "links", "lynx", "chromium", "google-chrome" };
+            for (int i = 0; i < navigateursConnus.length; i++) {
+                which = runtime.exec(new String[] { "which", "sensible-browser" });
+                if (which.exitValue() == 0) {
+                    Process proc = runtime
+                            .exec(new String[] { navigateursConnus[i], interfaceURL });
+                    if (proc.exitValue() == 0) {
+                        return;
+                    }
+                }
+            }
+
+            // Impossible d'ouvrir le navigateur.
+            System.err.println(
+                    "Nous n'avons pas été en mesure d'ouvrir un navigateur web sur votre machine.\n" +
+                            "Cette application a besoin d'un navigateur web pour afficher son interface graphique.\n" +
+                            "Veuillez utiliser une des options suivante : \n" +
+                            "\t- installer xdg-open\n" +
+                            "\t- changer la variable $BROWSER pour pointer vers un navigateur web\n" +
+                            "\t- installer open\n" +
+                            "\t- installer www-open\n" +
+                            "\t- installer x-www-open\n" +
+                            "\t- installer gnome-open\n" +
+                            "\t- installer sensible-browser\n");
+            System.exit(1);
+        }
+
     }
 }
