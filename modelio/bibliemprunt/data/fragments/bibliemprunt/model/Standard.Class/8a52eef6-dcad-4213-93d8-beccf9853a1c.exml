@@ -60,7 +60,7 @@
           </ATTRIBUTES>
           <DEPENDENCIES>
             <LINK relation="Type">
-              <ID name="Client" mc="Standard.Class" uid="c4018c32-c80f-490b-a0ed-55c8100e92e5"/>
+              <ID name="CompteClient" mc="Standard.Class" uid="4d1e60d9-f201-43fa-adc9-7b4d2eac1b16"/>
             </LINK>
           </DEPENDENCIES>
         </OBJECT>
@@ -211,7 +211,7 @@
           </ATTRIBUTES>
           <DEPENDENCIES>
             <LINK relation="Target">
-              <ID name="Compte Client" mc="Standard.Class" uid="4d1e60d9-f201-43fa-adc9-7b4d2eac1b16"/>
+              <ID name="CompteClient" mc="Standard.Class" uid="4d1e60d9-f201-43fa-adc9-7b4d2eac1b16"/>
             </LINK>
             <COMP relation="Opposite">
               <OBJECT>
