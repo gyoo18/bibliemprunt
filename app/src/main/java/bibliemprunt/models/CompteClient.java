@@ -1,4 +1,4 @@
-package models;
+package bibliemprunt.models;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -42,14 +42,14 @@ public class CompteClient {
     public List<Emprunt> avoirEmpruntsActifs() {
         Date maintenant = new Date();
         return historiqueEmprunts.stream()
-            .filter(emprunt -> {
-                Calendar cal = Calendar.getInstance();
-                cal.setTime(emprunt.getDateEmprunt());
-                cal.add(Calendar.DATE, emprunt.getDureeEmprunt());
-                Date dateRetour = cal.getTime();
-                return dateRetour.after(maintenant) || dateRetour.equals(maintenant);
-            })
-            .collect(Collectors.toList());
+                .filter(emprunt -> {
+                    Calendar cal = Calendar.getInstance();
+                    cal.setTime(emprunt.getDateEmprunt());
+                    cal.add(Calendar.DATE, emprunt.getDureeEmprunt());
+                    Date dateRetour = cal.getTime();
+                    return dateRetour.after(maintenant) || dateRetour.equals(maintenant);
+                })
+                .collect(Collectors.toList());
     }
 
     public void enregistrerEmprunt(Emprunt emprunt) {
