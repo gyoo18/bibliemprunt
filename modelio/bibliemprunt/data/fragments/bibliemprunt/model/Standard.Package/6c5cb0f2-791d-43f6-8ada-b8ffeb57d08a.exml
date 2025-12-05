@@ -1,0 +1,21 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="Swing" version="4">
+  <OBJECT>
+    <ID name="Swing" mc="Standard.Package" uid="6c5cb0f2-791d-43f6-8ada-b8ffeb57d08a"/>
+    <PID name="bibliemprunt" mc="Standard.Package" uid="63726160-f92e-4a0a-950d-837337e72bf8"/>
+    <ATTRIBUTES>
+      <ATT name="IsInstantiable">false</ATT>
+      <ATT name="IsAbstract">false</ATT>
+      <ATT name="IsLeaf">false</ATT>
+      <ATT name="IsRoot">false</ATT>
+      <ATT name="Visibility">Public</ATT>
+      <ATT name="Name"><![CDATA[Swing]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES>
+      <COMP relation="OwnedElement">
+        <COMPID name="JFrame" mc="Standard.Class" uid="7bcb5623-f244-494a-bc99-b3c9c8186679"/>
+      </COMP>
+    </DEPENDENCIES>
+  </OBJECT>
+</EXT>

@@ -16,6 +16,8 @@
       <COMP relation="OwnedBehavior">
         <COMPID name="Interaction" mc="Standard.Interaction" uid="6c505ccf-0ea5-496f-8281-cb747a2bf75b"/>
         <COMPID name="Communication Interaction" mc="Standard.CommunicationInteraction" uid="053ed421-362c-4a04-bb1e-34dbae0ee7c5"/>
+        <COMPID name="State Machine" mc="Standard.StateMachine" uid="1f6dd728-fa8d-4734-b732-5567f8367188"/>
+        <COMPID name="Interaction1" mc="Standard.Interaction" uid="1ab0503a-7619-40ec-b36b-5a1c255aec01"/>
       </COMP>
       <COMP relation="OwnedElement">
         <COMPID name="Bibliothèque" mc="Standard.Class" uid="734bcfc5-4ac8-4a2f-a323-035e0bcf918c"/>
@@ -29,6 +31,12 @@
         <COMPID name="Paramètres" mc="Standard.Class" uid="85747411-28bd-46f6-a959-0a19a0711deb"/>
         <COMPID name="Serveur Interface" mc="Standard.Class" uid="7678ec3b-bfbe-450c-bdd7-9ff98142e516"/>
         <COMPID name="Page HTML" mc="Standard.Class" uid="ed518fc8-2d0d-47c1-a24a-5e44699a060b"/>
+        <COMPID name="Interface Graphique" mc="Standard.Class" uid="13a00548-406d-4e64-95c6-6b1a882778c4"/>
+        <COMPID name="Page" mc="Standard.Class" uid="b743acd6-ed29-4a75-bac4-fbc6490c537d"/>
+        <COMPID name="Usine Page" mc="Standard.Class" uid="9d932479-d99b-47a3-b0ce-8813f73905be"/>
+        <COMPID name="Swing" mc="Standard.Package" uid="6c5cb0f2-791d-43f6-8ada-b8ffeb57d08a"/>
+        <COMPID name="Java" mc="Standard.Package" uid="96d77815-f831-43a2-866a-a8a750875287"/>
+        <COMPID name="Client" mc="Standard.Class" uid="351e7215-8ba6-47f0-8afc-f23a146f581b"/>
       </COMP>
       <COMP relation="Product">
         <COMPID name="Modèle du domaine" mc="Standard.ClassDiagram" uid="b3469607-368f-4fbb-aa57-91b6a1c430bf"/>
