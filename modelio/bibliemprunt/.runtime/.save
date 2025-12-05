@@ -1,4 +1,4 @@
-#Tue Dec 02 21:39:00 EST 2025
+#Fri Dec 05 18:46:46 EST 2025
 org.modelio.app.module.propertytab.GModule\ [id\='JavaDesigner',\ version\='5.4.00',\ type\='MODULE',\ definitionScope\='LOCAL',\ state\='MOUNTED']\ runtime\ module_.org.modelio.full.perspective.parentId=app.ui.ext_com.partstack.bottom
 org.modelio.app.diagram.editor.OpenedDiagrams0='Cas utilisation emprunt' {08f89ebe-b2f2-401c-bbf5-54bad30d73ba} Standard.SequenceDiagram
 org.modelio.app.module.propertytab.GModule\ [id\='JavaDesigner',\ version\='5.4.00',\ type\='MODULE',\ definitionScope\='LOCAL',\ state\='MOUNTED']\ runtime\ module_.org.modelio.development.perspective.parentId=app.ui.ext_com.partstack.bottom
@@ -8,3 +8,5 @@ org.modelio.app.diagram.editor.OpenedDiagrams1='Mod\u00E8le du domaine' {b346960
 org.modelio.app.diagram.editor.OpenedDiagrams2='Diagramme de communication Communication Interaction' {df304d46-5cd8-4219-a247-963b7baf3cab} Standard.CommunicationDiagram
 org.modelio.app.module.propertytab.GModule\ [id\='JavaDesigner',\ version\='5.4.00',\ type\='MODULE',\ definitionScope\='LOCAL',\ state\='MOUNTED']\ runtime\ module_.org.modelio.app.ui.model.perspective.parentId=org.modelio.app.bottom.parts
 org.modelio.app.module.propertytab.GModule\ [id\='JavaDesigner',\ version\='5.4.00',\ type\='MODULE',\ definitionScope\='LOCAL',\ state\='MOUNTED']\ runtime\ module_.org.modelio.diagram.perspective.parentId=app.ui.ext_com.partstack.right
+org.modelio.app.diagram.editor.OpenedDiagrams5='\u00C9tat-transitions de la borne et de l'interface graphique' {54b675ff-aaa7-45d9-8231-4e164be853ea} Standard.StateMachineDiagram
+org.modelio.app.diagram.editor.OpenedDiagrams6='Interaction Interface-Borne' {4f634049-0d6b-49ea-bc13-b3784cfac9c7} Standard.SequenceDiagram
