@@ -37,6 +37,8 @@
         <COMPID name="Swing" mc="Standard.Package" uid="6c5cb0f2-791d-43f6-8ada-b8ffeb57d08a"/>
         <COMPID name="Java" mc="Standard.Package" uid="96d77815-f831-43a2-866a-a8a750875287"/>
         <COMPID name="Client" mc="Standard.Class" uid="351e7215-8ba6-47f0-8afc-f23a146f581b"/>
+        <COMPID name="SQLInterface" mc="Standard.Class" uid="14d94154-f056-417d-84fd-394978a555be"/>
+        <COMPID name="SQLInterface" mc="Standard.Class" uid="c0286f78-2a81-4971-ad4a-6f087756164e"/>
       </COMP>
       <COMP relation="Product">
         <COMPID name="Modèle du domaine" mc="Standard.ClassDiagram" uid="b3469607-368f-4fbb-aa57-91b6a1c430bf"/>
