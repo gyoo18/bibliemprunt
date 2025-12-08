@@ -1,7 +1,7 @@
 <?xml version="1.0" ?>
 <!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="Communication Interaction" version="4">
   <OBJECT>
-    <ID name="Communication Interaction" mc="Standard.CommunicationInteraction" uid="053ed421-362c-4a04-bb1e-34dbae0ee7c5"/>
+    <ID name="Communication Interaction" mc="Standard.CommunicationInteraction" uid="aa91b455-f678-468f-acf5-5a82eb7f4f5f"/>
     <PID name="bibliemprunt" mc="Standard.Package" uid="63726160-f92e-4a0a-950d-837337e72bf8"/>
     <ATTRIBUTES>
       <ATT name="IsReentrant">false</ATT>
@@ -11,7 +11,7 @@
     <DEPENDENCIES>
       <COMP relation="Owned">
         <OBJECT>
-          <ID name="Création" mc="Standard.CommunicationNode" uid="7a590195-fcf3-41cf-989c-13e35ea166e1"/>
+          <ID name="Création" mc="Standard.CommunicationNode" uid="87ae13ae-91bd-4d57-a562-b6eb199609a1"/>
           <ATTRIBUTES>
             <ATT name="Selector"></ATT>
             <ATT name="Name"><![CDATA[Création]]></ATT>
@@ -20,7 +20,7 @@
           <DEPENDENCIES>
             <COMP relation="Started">
               <OBJECT>
-                <ID name="" mc="Standard.CommunicationChannel" uid="63e7b988-e0d3-418f-b6b4-15319e8fd615"/>
+                <ID name="" mc="Standard.CommunicationChannel" uid="a8410fea-053e-41c3-930a-a477ddbef77d"/>
                 <ATTRIBUTES>
                   <ATT name="Name"></ATT>
                   <ATT name="status">1970354901745664</ATT>
@@ -28,7 +28,7 @@
                 <DEPENDENCIES>
                   <COMP relation="StartToEndMessage">
                     <OBJECT>
-                      <ID name="create()" mc="Standard.CommunicationMessage" uid="1f47f2f3-f03e-400c-a5a5-b8289fe685c6"/>
+                      <ID name="create()" mc="Standard.CommunicationMessage" uid="b4ced314-35b0-42ad-a51c-fddec7e6dd3b"/>
                       <ATTRIBUTES>
                         <ATT name="Argument"></ATT>
                         <ATT name="Sequence"></ATT>
@@ -41,7 +41,7 @@
                   </COMP>
                   <LINK relation="End">
                     <REFOBJ>
-                      <ID name="Bibliothèque" mc="Standard.CommunicationNode" uid="f28b5e18-f7b6-4643-baec-950b8a25db84"/>
+                      <ID name="Bibliothèque" mc="Standard.CommunicationNode" uid="70ae78b0-462c-4881-843d-91805095ec27"/>
                     </REFOBJ>
                   </LINK>
                 </DEPENDENCIES>
@@ -50,7 +50,7 @@
           </DEPENDENCIES>
         </OBJECT>
         <OBJECT>
-          <ID name="SQLInterface" mc="Standard.CommunicationNode" uid="2cabb3cc-4bee-41f4-a520-d386a04830ee"/>
+          <ID name="SQLInterface" mc="Standard.CommunicationNode" uid="db46ae4b-594c-4dfe-89ab-38b936fcb114"/>
           <ATTRIBUTES>
             <ATT name="Selector"></ATT>
             <ATT name="Name"><![CDATA[SQLInterface]]></ATT>
@@ -59,7 +59,7 @@
           <DEPENDENCIES></DEPENDENCIES>
         </OBJECT>
         <OBJECT>
-          <ID name="Banque de Livres" mc="Standard.CommunicationNode" uid="57ea0a03-0a95-4e99-83cc-df609a051b2b"/>
+          <ID name="Banque de Livres" mc="Standard.CommunicationNode" uid="acf4a322-1a4a-4638-afe1-d7a60e10de73"/>
           <ATTRIBUTES>
             <ATT name="Selector"></ATT>
             <ATT name="Name"><![CDATA[Banque de Livres]]></ATT>
@@ -68,7 +68,7 @@
           <DEPENDENCIES></DEPENDENCIES>
         </OBJECT>
         <OBJECT>
-          <ID name="Banque d'Emprunts" mc="Standard.CommunicationNode" uid="919bb972-05fb-4711-9d51-c9ad0096f665"/>
+          <ID name="Banque d'Emprunts" mc="Standard.CommunicationNode" uid="b0b91eee-c5f8-4d64-95ef-823dedcd6951"/>
           <ATTRIBUTES>
             <ATT name="Selector"></ATT>
             <ATT name="Name"><![CDATA[Banque d'Emprunts]]></ATT>
@@ -77,7 +77,7 @@
           <DEPENDENCIES></DEPENDENCIES>
         </OBJECT>
         <OBJECT>
-          <ID name="Banque de Clients" mc="Standard.CommunicationNode" uid="aa832b9b-5832-4d44-b39a-ea674cef5581"/>
+          <ID name="Banque de Clients" mc="Standard.CommunicationNode" uid="71310685-518b-4c0e-ad12-0a88a1c394bd"/>
           <ATTRIBUTES>
             <ATT name="Selector"></ATT>
             <ATT name="Name"><![CDATA[Banque de Clients]]></ATT>
@@ -86,7 +86,7 @@
           <DEPENDENCIES></DEPENDENCIES>
         </OBJECT>
         <OBJECT>
-          <ID name="Bibliothèque" mc="Standard.CommunicationNode" uid="f28b5e18-f7b6-4643-baec-950b8a25db84"/>
+          <ID name="Bibliothèque" mc="Standard.CommunicationNode" uid="70ae78b0-462c-4881-843d-91805095ec27"/>
           <ATTRIBUTES>
             <ATT name="Selector"></ATT>
             <ATT name="Name"><![CDATA[Bibliothèque]]></ATT>
@@ -95,7 +95,7 @@
           <DEPENDENCIES>
             <COMP relation="Started">
               <OBJECT>
-                <ID name="" mc="Standard.CommunicationChannel" uid="da10474f-bdb3-4eff-b6ca-c393c1b734c2"/>
+                <ID name="" mc="Standard.CommunicationChannel" uid="c29c6f83-7511-45cc-b6e8-ba513c8d9e63"/>
                 <ATTRIBUTES>
                   <ATT name="Name"></ATT>
                   <ATT name="status">1970354901745664</ATT>
@@ -103,7 +103,7 @@
                 <DEPENDENCIES>
                   <COMP relation="StartToEndMessage">
                     <OBJECT>
-                      <ID name="create()" mc="Standard.CommunicationMessage" uid="fca335e8-f0b6-4ba3-a4ef-4a5b0fb7a45a"/>
+                      <ID name="create()" mc="Standard.CommunicationMessage" uid="43b88a30-9df6-4c71-9a83-0dc2d1ae1b1a"/>
                       <ATTRIBUTES>
                         <ATT name="Argument"></ATT>
                         <ATT name="Sequence"></ATT>
@@ -116,13 +116,13 @@
                   </COMP>
                   <LINK relation="End">
                     <REFOBJ>
-                      <ID name="Banque de Clients" mc="Standard.CommunicationNode" uid="aa832b9b-5832-4d44-b39a-ea674cef5581"/>
+                      <ID name="Banque de Clients" mc="Standard.CommunicationNode" uid="71310685-518b-4c0e-ad12-0a88a1c394bd"/>
                     </REFOBJ>
                   </LINK>
                 </DEPENDENCIES>
               </OBJECT>
               <OBJECT>
-                <ID name="" mc="Standard.CommunicationChannel" uid="d811c2b8-89d6-4f33-b1e1-68db4d684e4f"/>
+                <ID name="" mc="Standard.CommunicationChannel" uid="dbe5c1c8-e7ac-4718-b7d6-90d32a524d13"/>
                 <ATTRIBUTES>
                   <ATT name="Name"></ATT>
                   <ATT name="status">1970354901745664</ATT>
@@ -130,7 +130,7 @@
                 <DEPENDENCIES>
                   <COMP relation="StartToEndMessage">
                     <OBJECT>
-                      <ID name="create()" mc="Standard.CommunicationMessage" uid="021cba5b-1922-4d76-9a2a-9fcd6ba625ee"/>
+                      <ID name="create()" mc="Standard.CommunicationMessage" uid="27f371f5-a4a3-48f4-ae12-d7ee81385c40"/>
                       <ATTRIBUTES>
                         <ATT name="Argument"></ATT>
                         <ATT name="Sequence"></ATT>
@@ -143,13 +143,13 @@
                   </COMP>
                   <LINK relation="End">
                     <REFOBJ>
-                      <ID name="Banque d'Emprunts" mc="Standard.CommunicationNode" uid="919bb972-05fb-4711-9d51-c9ad0096f665"/>
+                      <ID name="Banque d'Emprunts" mc="Standard.CommunicationNode" uid="b0b91eee-c5f8-4d64-95ef-823dedcd6951"/>
                     </REFOBJ>
                   </LINK>
                 </DEPENDENCIES>
               </OBJECT>
               <OBJECT>
-                <ID name="" mc="Standard.CommunicationChannel" uid="1dac7964-ff24-45f0-bad4-7b66bb7446d2"/>
+                <ID name="" mc="Standard.CommunicationChannel" uid="12581224-6f61-4614-8a84-68a974e50977"/>
                 <ATTRIBUTES>
                   <ATT name="Name"></ATT>
                   <ATT name="status">1970354901745664</ATT>
@@ -157,7 +157,7 @@
                 <DEPENDENCIES>
                   <COMP relation="StartToEndMessage">
                     <OBJECT>
-                      <ID name="create()" mc="Standard.CommunicationMessage" uid="928d3cb2-7e39-421e-8cc5-1c3a8da86b18"/>
+                      <ID name="create()" mc="Standard.CommunicationMessage" uid="14021377-5884-4e3c-96ec-f73cde49d8de"/>
                       <ATTRIBUTES>
                         <ATT name="Argument"></ATT>
                         <ATT name="Sequence"></ATT>
@@ -170,13 +170,13 @@
                   </COMP>
                   <LINK relation="End">
                     <REFOBJ>
-                      <ID name="Banque de Livres" mc="Standard.CommunicationNode" uid="57ea0a03-0a95-4e99-83cc-df609a051b2b"/>
+                      <ID name="Banque de Livres" mc="Standard.CommunicationNode" uid="acf4a322-1a4a-4638-afe1-d7a60e10de73"/>
                     </REFOBJ>
                   </LINK>
                 </DEPENDENCIES>
               </OBJECT>
               <OBJECT>
-                <ID name="" mc="Standard.CommunicationChannel" uid="6aabd169-ae24-4e40-8050-ebed85c98fa3"/>
+                <ID name="" mc="Standard.CommunicationChannel" uid="00275672-afc1-40cc-9071-ed4bcfad1e8b"/>
                 <ATTRIBUTES>
                   <ATT name="Name"></ATT>
                   <ATT name="status">1970354901745664</ATT>
@@ -184,7 +184,7 @@
                 <DEPENDENCIES>
                   <COMP relation="StartToEndMessage">
                     <OBJECT>
-                      <ID name="create()" mc="Standard.CommunicationMessage" uid="1ebded6a-967a-4c94-91bd-4f1b8e44b94e"/>
+                      <ID name="create()" mc="Standard.CommunicationMessage" uid="2ba0311b-68fb-4410-918b-ba0047ff3add"/>
                       <ATTRIBUTES>
                         <ATT name="Argument"></ATT>
                         <ATT name="Sequence"></ATT>
@@ -197,13 +197,13 @@
                   </COMP>
                   <LINK relation="End">
                     <REFOBJ>
-                      <ID name="SQLInterface" mc="Standard.CommunicationNode" uid="2cabb3cc-4bee-41f4-a520-d386a04830ee"/>
+                      <ID name="SQLInterface" mc="Standard.CommunicationNode" uid="db46ae4b-594c-4dfe-89ab-38b936fcb114"/>
                     </REFOBJ>
                   </LINK>
                 </DEPENDENCIES>
               </OBJECT>
               <OBJECT>
-                <ID name="" mc="Standard.CommunicationChannel" uid="59e60ac9-da8f-4af6-904a-a4ad8ac3d949"/>
+                <ID name="" mc="Standard.CommunicationChannel" uid="ec9e15fb-9f1e-42f3-b9c5-bc0146bbb36a"/>
                 <ATTRIBUTES>
                   <ATT name="Name"></ATT>
                   <ATT name="status">1970354901745664</ATT>
@@ -211,7 +211,7 @@
                 <DEPENDENCIES>
                   <COMP relation="StartToEndMessage">
                     <OBJECT>
-                      <ID name="create()" mc="Standard.CommunicationMessage" uid="e6ef0445-505c-40cf-b59a-ebd6465a245c"/>
+                      <ID name="create()" mc="Standard.CommunicationMessage" uid="1aec5a98-6922-4255-ba97-57b768a567d3"/>
                       <ATTRIBUTES>
                         <ATT name="Argument"></ATT>
                         <ATT name="Sequence"></ATT>
@@ -224,34 +224,7 @@
                   </COMP>
                   <LINK relation="End">
                     <REFOBJ>
-                      <ID name="Borne d'emprunt" mc="Standard.CommunicationNode" uid="41823268-67a9-485d-9216-8692e7656032"/>
-                    </REFOBJ>
-                  </LINK>
-                </DEPENDENCIES>
-              </OBJECT>
-              <OBJECT>
-                <ID name="" mc="Standard.CommunicationChannel" uid="feeedacf-a0b6-484f-9c55-b893a9b2017a"/>
-                <ATTRIBUTES>
-                  <ATT name="Name"></ATT>
-                  <ATT name="status">1970354901745664</ATT>
-                </ATTRIBUTES>
-                <DEPENDENCIES>
-                  <COMP relation="StartToEndMessage">
-                    <OBJECT>
-                      <ID name="lancerNavigateur()" mc="Standard.CommunicationMessage" uid="3fbb6423-666f-4944-8b2c-e4646b9e5acb"/>
-                      <ATTRIBUTES>
-                        <ATT name="Argument"></ATT>
-                        <ATT name="Sequence"></ATT>
-                        <ATT name="SortOfMessage">SyncCall</ATT>
-                        <ATT name="Name"><![CDATA[lancerNavigateur()]]></ATT>
-                        <ATT name="status">1970354901745664</ATT>
-                      </ATTRIBUTES>
-                      <DEPENDENCIES></DEPENDENCIES>
-                    </OBJECT>
-                  </COMP>
-                  <LINK relation="End">
-                    <REFOBJ>
-                      <ID name="NavigateurWeb" mc="Standard.CommunicationNode" uid="ce3fbd92-9be7-4ead-aa15-996302b85e86"/>
+                      <ID name="Borne d'emprunt" mc="Standard.CommunicationNode" uid="7f76d2a4-6244-4602-981f-e86c48c0b16b"/>
                     </REFOBJ>
                   </LINK>
                 </DEPENDENCIES>
@@ -260,7 +233,7 @@
           </DEPENDENCIES>
         </OBJECT>
         <OBJECT>
-          <ID name="Borne d'emprunt" mc="Standard.CommunicationNode" uid="41823268-67a9-485d-9216-8692e7656032"/>
+          <ID name="Borne d'emprunt" mc="Standard.CommunicationNode" uid="7f76d2a4-6244-4602-981f-e86c48c0b16b"/>
           <ATTRIBUTES>
             <ATT name="Selector"></ATT>
             <ATT name="Name"><![CDATA[Borne d'emprunt]]></ATT>
@@ -269,7 +242,7 @@
           <DEPENDENCIES>
             <COMP relation="Started">
               <OBJECT>
-                <ID name="" mc="Standard.CommunicationChannel" uid="c40e1a6d-c792-417a-9a3a-e818c466837b"/>
+                <ID name="" mc="Standard.CommunicationChannel" uid="291a5931-577c-4f39-b015-c46107a20262"/>
                 <ATTRIBUTES>
                   <ATT name="Name"></ATT>
                   <ATT name="status">1970354901745664</ATT>
@@ -277,7 +250,7 @@
                 <DEPENDENCIES>
                   <COMP relation="StartToEndMessage">
                     <OBJECT>
-                      <ID name="create()" mc="Standard.CommunicationMessage" uid="62c7808c-314b-4289-a05f-ca23d5711ad8"/>
+                      <ID name="create()" mc="Standard.CommunicationMessage" uid="305d75c9-e702-4565-9196-f89d95cf5b43"/>
                       <ATTRIBUTES>
                         <ATT name="Argument"></ATT>
                         <ATT name="Sequence"></ATT>
@@ -290,7 +263,7 @@
                   </COMP>
                   <LINK relation="End">
                     <REFOBJ>
-                      <ID name="Interface Utilisateur" mc="Standard.CommunicationNode" uid="363c55a0-c11c-4e9e-949d-9288315bcfcf"/>
+                      <ID name="Interface Utilisateur" mc="Standard.CommunicationNode" uid="bda50e6e-43c5-4acf-bfcb-fccc650447d4"/>
                     </REFOBJ>
                   </LINK>
                 </DEPENDENCIES>
@@ -299,19 +272,88 @@
           </DEPENDENCIES>
         </OBJECT>
         <OBJECT>
-          <ID name="Interface Utilisateur" mc="Standard.CommunicationNode" uid="363c55a0-c11c-4e9e-949d-9288315bcfcf"/>
+          <ID name="Interface Utilisateur" mc="Standard.CommunicationNode" uid="bda50e6e-43c5-4acf-bfcb-fccc650447d4"/>
           <ATTRIBUTES>
             <ATT name="Selector"></ATT>
             <ATT name="Name"><![CDATA[Interface Utilisateur]]></ATT>
             <ATT name="status">1970354901745664</ATT>
           </ATTRIBUTES>
-          <DEPENDENCIES></DEPENDENCIES>
+          <DEPENDENCIES>
+            <COMP relation="Started">
+              <OBJECT>
+                <ID name="" mc="Standard.CommunicationChannel" uid="a8dd0a8f-4a1b-4a94-9061-1e2ccc32f8fe"/>
+                <ATTRIBUTES>
+                  <ATT name="Name"></ATT>
+                  <ATT name="status">1970354901745664</ATT>
+                </ATTRIBUTES>
+                <DEPENDENCIES>
+                  <COMP relation="StartToEndMessage">
+                    <OBJECT>
+                      <ID name="creéer Pages" mc="Standard.CommunicationMessage" uid="a8d5c52d-48de-4003-a30c-88d1ee93397f"/>
+                      <ATTRIBUTES>
+                        <ATT name="Argument"></ATT>
+                        <ATT name="Sequence"></ATT>
+                        <ATT name="SortOfMessage">SyncCall</ATT>
+                        <ATT name="Name"><![CDATA[creéer Pages]]></ATT>
+                        <ATT name="status">1970354901745664</ATT>
+                      </ATTRIBUTES>
+                      <DEPENDENCIES></DEPENDENCIES>
+                    </OBJECT>
+                  </COMP>
+                  <LINK relation="End">
+                    <REFOBJ>
+                      <ID name="UsinePage" mc="Standard.CommunicationNode" uid="24bf85c6-3d6c-4040-9fa1-f9cae4db8189"/>
+                    </REFOBJ>
+                  </LINK>
+                </DEPENDENCIES>
+              </OBJECT>
+            </COMP>
+          </DEPENDENCIES>
         </OBJECT>
         <OBJECT>
-          <ID name="NavigateurWeb" mc="Standard.CommunicationNode" uid="ce3fbd92-9be7-4ead-aa15-996302b85e86"/>
+          <ID name="UsinePage" mc="Standard.CommunicationNode" uid="24bf85c6-3d6c-4040-9fa1-f9cae4db8189"/>
           <ATTRIBUTES>
             <ATT name="Selector"></ATT>
-            <ATT name="Name"><![CDATA[NavigateurWeb]]></ATT>
+            <ATT name="Name"><![CDATA[UsinePage]]></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <COMP relation="Started">
+              <OBJECT>
+                <ID name="" mc="Standard.CommunicationChannel" uid="c4b12a80-7682-4b0b-a548-b89e7b5c4ed7"/>
+                <ATTRIBUTES>
+                  <ATT name="Name"></ATT>
+                  <ATT name="status">1970354901745664</ATT>
+                </ATTRIBUTES>
+                <DEPENDENCIES>
+                  <COMP relation="StartToEndMessage">
+                    <OBJECT>
+                      <ID name="create()" mc="Standard.CommunicationMessage" uid="c79100f0-6a4b-411a-b1e6-a9939061c3e0"/>
+                      <ATTRIBUTES>
+                        <ATT name="Argument"></ATT>
+                        <ATT name="Sequence"></ATT>
+                        <ATT name="SortOfMessage">SyncCall</ATT>
+                        <ATT name="Name"><![CDATA[create()]]></ATT>
+                        <ATT name="status">1970354901745664</ATT>
+                      </ATTRIBUTES>
+                      <DEPENDENCIES></DEPENDENCIES>
+                    </OBJECT>
+                  </COMP>
+                  <LINK relation="End">
+                    <REFOBJ>
+                      <ID name="Page" mc="Standard.CommunicationNode" uid="4d33379f-57ed-47e3-9e2e-bd4de3db3bf6"/>
+                    </REFOBJ>
+                  </LINK>
+                </DEPENDENCIES>
+              </OBJECT>
+            </COMP>
+          </DEPENDENCIES>
+        </OBJECT>
+        <OBJECT>
+          <ID name="Page" mc="Standard.CommunicationNode" uid="4d33379f-57ed-47e3-9e2e-bd4de3db3bf6"/>
+          <ATTRIBUTES>
+            <ATT name="Selector"></ATT>
+            <ATT name="Name"><![CDATA[Page]]></ATT>
             <ATT name="status">1970354901745664</ATT>
           </ATTRIBUTES>
           <DEPENDENCIES></DEPENDENCIES>
@@ -319,7 +361,7 @@
       </COMP>
       <COMP relation="OwnedCollaboration">
         <OBJECT>
-          <ID name="locals" mc="Standard.Collaboration" uid="5563fed7-cede-4968-a0ac-1edf27fec6e4"/>
+          <ID name="locals" mc="Standard.Collaboration" uid="5fe61b8d-83ca-4a07-8844-90b4aa52efe4"/>
           <ATTRIBUTES>
             <ATT name="IsConcurrent">false</ATT>
             <ATT name="IsAbstract">false</ATT>
@@ -333,7 +375,7 @@
         </OBJECT>
       </COMP>
       <COMP relation="Product">
-        <COMPID name="Initialisation Système Swing" mc="Standard.CommunicationDiagram" uid="df304d46-5cd8-4219-a247-963b7baf3cab"/>
+        <COMPID name="Initialisation Système HTML" mc="Standard.CommunicationDiagram" uid="180f07df-7662-45d1-a1a5-d8443ca39b13"/>
       </COMP>
     </DEPENDENCIES>
   </OBJECT>

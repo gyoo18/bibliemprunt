@@ -18,6 +18,7 @@
         <COMPID name="Communication Interaction" mc="Standard.CommunicationInteraction" uid="053ed421-362c-4a04-bb1e-34dbae0ee7c5"/>
         <COMPID name="State Machine" mc="Standard.StateMachine" uid="1f6dd728-fa8d-4734-b732-5567f8367188"/>
         <COMPID name="Interaction1" mc="Standard.Interaction" uid="1ab0503a-7619-40ec-b36b-5a1c255aec01"/>
+        <COMPID name="Communication Interaction" mc="Standard.CommunicationInteraction" uid="aa91b455-f678-468f-acf5-5a82eb7f4f5f"/>
       </COMP>
       <COMP relation="OwnedElement">
         <COMPID name="Bibliothèque" mc="Standard.Class" uid="734bcfc5-4ac8-4a2f-a323-035e0bcf918c"/>
