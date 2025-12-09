@@ -3,9 +3,9 @@ package bibliemprunt.models;
 import java.util.Date;
 
 public class Emprunt {
-    private Livre livre;
-    private CompteClient client;
-    private Date dateEmprunt;
+    public final Livre livre;
+    public final CompteClient client;
+    public final Date dateEmprunt;
     private int dureeEmprunt;
 
     public Emprunt(Livre livre, CompteClient client, Date dateEmprunt, int dureeEmprunt) {
@@ -13,18 +13,6 @@ public class Emprunt {
         this.client = client;
         this.dateEmprunt = dateEmprunt;
         this.dureeEmprunt = dureeEmprunt;
-    }
-
-    public Livre getLivre() {
-        return livre;
-    }
-
-    public CompteClient getClient() {
-        return client;
-    }
-
-    public Date getDateEmprunt() {
-        return dateEmprunt;
     }
 
     public int getDureeEmprunt() {

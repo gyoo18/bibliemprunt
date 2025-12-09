@@ -21,7 +21,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.awt.Desktop;
 
-public class App {
+public class Bibliothèque {
 
     private enum HTTPRequêteType {
         POST,

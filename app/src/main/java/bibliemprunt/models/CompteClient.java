@@ -7,9 +7,9 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class CompteClient {
-    private int numeroCompte;
-    private int NIP;
-    private String nom;
+    public final int numeroCompte;
+    public final int NIP;
+    public final String nom;
     private List<Emprunt> historiqueEmprunts;
     private boolean compteBloque;
     private long tempsBloque;
@@ -23,18 +23,6 @@ public class CompteClient {
         this.tempsBloque = 0;
     }
 
-    public int getNumeroCompte() {
-        return numeroCompte;
-    }
-
-    public int getNIP() {
-        return NIP;
-    }
-
-    public String getNom() {
-        return nom;
-    }
-
     public List<Emprunt> getHistoriqueEmprunts() {
         return historiqueEmprunts;
     }
@@ -44,7 +32,7 @@ public class CompteClient {
         return historiqueEmprunts.stream()
                 .filter(emprunt -> {
                     Calendar cal = Calendar.getInstance();
-                    cal.setTime(emprunt.getDateEmprunt());
+                    cal.setTime(emprunt.dateEmprunt);
                     cal.add(Calendar.DATE, emprunt.getDureeEmprunt());
                     Date dateRetour = cal.getTime();
                     return dateRetour.after(maintenant) || dateRetour.equals(maintenant);
@@ -67,10 +55,6 @@ public class CompteClient {
 
     public int nbEmpruntsActifs() {
         return avoirEmpruntsActifs().size();
-    }
-
-    public boolean getcompteBloque() {
-        return compteBloque;
     }
 
     public long getTempsBloque() {

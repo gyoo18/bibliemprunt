@@ -32,5 +32,5 @@ java {
 
 application {
     // Define the main class for the application.
-    mainClass = 'bibliemprunt.App'
+    mainClass = 'bibliemprunt.Bibliothèque'
 }
