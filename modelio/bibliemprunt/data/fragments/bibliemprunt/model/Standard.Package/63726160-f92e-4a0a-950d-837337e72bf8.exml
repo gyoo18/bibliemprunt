@@ -40,6 +40,142 @@
         <COMPID name="Client" mc="Standard.Class" uid="351e7215-8ba6-47f0-8afc-f23a146f581b"/>
         <COMPID name="SQLInterface" mc="Standard.Class" uid="14d94154-f056-417d-84fd-394978a555be"/>
         <COMPID name="SQLInterface" mc="Standard.Class" uid="c0286f78-2a81-4971-ad4a-6f087756164e"/>
+        <OBJECT>
+          <ID name="ÉtatGUI" mc="Standard.Enumeration" uid="e4cc2200-8816-4c63-824f-658b064b335a"/>
+          <ATTRIBUTES>
+            <ATT name="IsElementary">true</ATT>
+            <ATT name="IsAbstract">false</ATT>
+            <ATT name="IsLeaf">false</ATT>
+            <ATT name="IsRoot">false</ATT>
+            <ATT name="Visibility">Public</ATT>
+            <ATT name="Name"><![CDATA[ÉtatGUI]]></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <COMP relation="Value">
+              <OBJECT>
+                <ID name="ATTENTE_AUTHENTIFICATION" mc="Standard.EnumerationLiteral" uid="dbaa5c72-781d-4d7c-a5c2-62831a1e80ea"/>
+                <ATTRIBUTES>
+                  <ATT name="Name"><![CDATA[ATTENTE_AUTHENTIFICATION]]></ATT>
+                  <ATT name="status">1970354901745664</ATT>
+                </ATTRIBUTES>
+                <DEPENDENCIES></DEPENDENCIES>
+              </OBJECT>
+              <OBJECT>
+                <ID name="AUTHENTIFICATION" mc="Standard.EnumerationLiteral" uid="f43ae875-c43f-401c-af28-78ec368ac06e"/>
+                <ATTRIBUTES>
+                  <ATT name="Name"><![CDATA[AUTHENTIFICATION]]></ATT>
+                  <ATT name="status">1970354901745664</ATT>
+                </ATTRIBUTES>
+                <DEPENDENCIES></DEPENDENCIES>
+              </OBJECT>
+              <OBJECT>
+                <ID name="COMPTE_INCONNU" mc="Standard.EnumerationLiteral" uid="214bc593-5b11-49f7-85de-e0985d7cff79"/>
+                <ATTRIBUTES>
+                  <ATT name="Name"><![CDATA[COMPTE_INCONNU]]></ATT>
+                  <ATT name="status">1970354901745664</ATT>
+                </ATTRIBUTES>
+                <DEPENDENCIES></DEPENDENCIES>
+              </OBJECT>
+              <OBJECT>
+                <ID name="COMPTE_BLOQUÉ" mc="Standard.EnumerationLiteral" uid="0f5cf774-3a9d-4759-8345-df0163754673"/>
+                <ATTRIBUTES>
+                  <ATT name="Name"><![CDATA[COMPTE_BLOQUÉ]]></ATT>
+                  <ATT name="status">1970354901745664</ATT>
+                </ATTRIBUTES>
+                <DEPENDENCIES></DEPENDENCIES>
+              </OBJECT>
+              <OBJECT>
+                <ID name="EMPRUNTS" mc="Standard.EnumerationLiteral" uid="55195c0b-8d33-4543-a985-ec611c8a823b"/>
+                <ATTRIBUTES>
+                  <ATT name="Name"><![CDATA[EMPRUNTS]]></ATT>
+                  <ATT name="status">1970354901745664</ATT>
+                </ATTRIBUTES>
+                <DEPENDENCIES></DEPENDENCIES>
+              </OBJECT>
+              <OBJECT>
+                <ID name="ANNULER_EMPRUNTS" mc="Standard.EnumerationLiteral" uid="63b5fc9c-c60d-4b34-9c27-48aebebac59f"/>
+                <ATTRIBUTES>
+                  <ATT name="Name"><![CDATA[ANNULER_EMPRUNTS]]></ATT>
+                  <ATT name="status">1970354901745664</ATT>
+                </ATTRIBUTES>
+                <DEPENDENCIES></DEPENDENCIES>
+              </OBJECT>
+              <OBJECT>
+                <ID name="ANNULER_TRANSACTION" mc="Standard.EnumerationLiteral" uid="6c6fa16c-6785-4369-8e47-b58c0e1242c3"/>
+                <ATTRIBUTES>
+                  <ATT name="Name"><![CDATA[ANNULER_TRANSACTION]]></ATT>
+                  <ATT name="status">1970354901745664</ATT>
+                </ATTRIBUTES>
+                <DEPENDENCIES></DEPENDENCIES>
+              </OBJECT>
+              <OBJECT>
+                <ID name="TRANSACTION_ANNULÉE" mc="Standard.EnumerationLiteral" uid="130ac9b7-ae85-4e88-a377-a67dff5c6f2d"/>
+                <ATTRIBUTES>
+                  <ATT name="Name"><![CDATA[TRANSACTION_ANNULÉE]]></ATT>
+                  <ATT name="status">1970354901745664</ATT>
+                </ATTRIBUTES>
+                <DEPENDENCIES></DEPENDENCIES>
+              </OBJECT>
+              <OBJECT>
+                <ID name="EMPRUNT_INVALIDE" mc="Standard.EnumerationLiteral" uid="4feb5e14-7077-4029-b2dd-727f4cb07e23"/>
+                <ATTRIBUTES>
+                  <ATT name="Name"><![CDATA[EMPRUNT_INVALIDE]]></ATT>
+                  <ATT name="status">1970354901745664</ATT>
+                </ATTRIBUTES>
+                <DEPENDENCIES></DEPENDENCIES>
+              </OBJECT>
+              <OBJECT>
+                <ID name="DEMANDER_REÇUS" mc="Standard.EnumerationLiteral" uid="e9a937d5-473c-42e2-891e-5efd9a5d0a10"/>
+                <ATTRIBUTES>
+                  <ATT name="Name"><![CDATA[DEMANDER_REÇUS]]></ATT>
+                  <ATT name="status">1970354901745664</ATT>
+                </ATTRIBUTES>
+                <DEPENDENCIES></DEPENDENCIES>
+              </OBJECT>
+              <OBJECT>
+                <ID name="AFFICHER_REÇUS" mc="Standard.EnumerationLiteral" uid="544259f8-d5eb-42db-9ffd-2205159afd7d"/>
+                <ATTRIBUTES>
+                  <ATT name="Name"><![CDATA[AFFICHER_REÇUS]]></ATT>
+                  <ATT name="status">1970354901745664</ATT>
+                </ATTRIBUTES>
+                <DEPENDENCIES></DEPENDENCIES>
+              </OBJECT>
+            </COMP>
+          </DEPENDENCIES>
+        </OBJECT>
+        <OBJECT>
+          <ID name="ÉtatBorne" mc="Standard.Enumeration" uid="77121430-559c-4533-b7de-3f2cd7692e94"/>
+          <ATTRIBUTES>
+            <ATT name="IsElementary">true</ATT>
+            <ATT name="IsAbstract">false</ATT>
+            <ATT name="IsLeaf">false</ATT>
+            <ATT name="IsRoot">false</ATT>
+            <ATT name="Visibility">Public</ATT>
+            <ATT name="Name"><![CDATA[ÉtatBorne]]></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <COMP relation="Value">
+              <OBJECT>
+                <ID name="AUTHENTIFICATION" mc="Standard.EnumerationLiteral" uid="a4716e39-3b16-4477-8cc6-e36df1d63846"/>
+                <ATTRIBUTES>
+                  <ATT name="Name"><![CDATA[AUTHENTIFICATION]]></ATT>
+                  <ATT name="status">1970354901745664</ATT>
+                </ATTRIBUTES>
+                <DEPENDENCIES></DEPENDENCIES>
+              </OBJECT>
+              <OBJECT>
+                <ID name="EMPRUNTS" mc="Standard.EnumerationLiteral" uid="c18ff841-55eb-458f-8084-65d162f5b708"/>
+                <ATTRIBUTES>
+                  <ATT name="Name"><![CDATA[EMPRUNTS]]></ATT>
+                  <ATT name="status">1970354901745664</ATT>
+                </ATTRIBUTES>
+                <DEPENDENCIES></DEPENDENCIES>
+              </OBJECT>
+            </COMP>
+          </DEPENDENCIES>
+        </OBJECT>
       </COMP>
       <COMP relation="Product">
         <COMPID name="Modèle du domaine" mc="Standard.ClassDiagram" uid="b3469607-368f-4fbb-aa57-91b6a1c430bf"/>
