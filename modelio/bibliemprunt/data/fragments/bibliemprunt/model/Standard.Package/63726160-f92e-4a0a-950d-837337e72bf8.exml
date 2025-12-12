@@ -23,12 +23,12 @@
       <COMP relation="OwnedElement">
         <COMPID name="Bibliothèque" mc="Standard.Class" uid="734bcfc5-4ac8-4a2f-a323-035e0bcf918c"/>
         <COMPID name="Livre" mc="Standard.Class" uid="f250c4f8-3bb4-46d9-8b91-7e0faefc6600"/>
-        <COMPID name="Borne d'emprunt" mc="Standard.Class" uid="e323486b-6fae-4710-be7a-54c8328b909a"/>
-        <COMPID name="Banque de livres" mc="Standard.Class" uid="fc808c4d-7936-484b-ae3b-44c72960a04a"/>
+        <COMPID name="BorneEmprunt" mc="Standard.Class" uid="e323486b-6fae-4710-be7a-54c8328b909a"/>
+        <COMPID name="BanqueLivres" mc="Standard.Class" uid="fc808c4d-7936-484b-ae3b-44c72960a04a"/>
         <COMPID name="CompteClient" mc="Standard.Class" uid="4d1e60d9-f201-43fa-adc9-7b4d2eac1b16"/>
-        <COMPID name="Banque d'emprunts" mc="Standard.Class" uid="f378a06e-b3bb-43a0-a8a0-a3ff48649df9"/>
+        <COMPID name="BanqueEmprunts" mc="Standard.Class" uid="f378a06e-b3bb-43a0-a8a0-a3ff48649df9"/>
         <COMPID name="Emprunt" mc="Standard.Class" uid="8a52eef6-dcad-4213-93d8-beccf9853a1c"/>
-        <COMPID name="Banque Clients" mc="Standard.Class" uid="512db497-d168-4adb-91d0-bc6bcbc4054d"/>
+        <COMPID name="BanqueClients" mc="Standard.Class" uid="512db497-d168-4adb-91d0-bc6bcbc4054d"/>
         <COMPID name="Paramètres" mc="Standard.Class" uid="85747411-28bd-46f6-a959-0a19a0711deb"/>
         <COMPID name="Serveur Interface" mc="Standard.Class" uid="7678ec3b-bfbe-450c-bdd7-9ff98142e516"/>
         <COMPID name="Page HTML" mc="Standard.Class" uid="ed518fc8-2d0d-47c1-a24a-5e44699a060b"/>
@@ -176,11 +176,24 @@
             </COMP>
           </DEPENDENCIES>
         </OBJECT>
+        <COMPID name="Bibliothèque" mc="Standard.Class" uid="5297e134-d00c-4cb9-8aea-94cb9580f356"/>
+        <COMPID name="Borne d'emprunt" mc="Standard.Class" uid="bf53a1a5-7c49-4b91-ac1a-8cc67fb8f7c1"/>
+        <COMPID name="Banque de Livres" mc="Standard.Class" uid="c2bb610e-5b4d-44dc-8445-c59cb2ec5100"/>
+        <COMPID name="Banque d'emprunt" mc="Standard.Class" uid="b681768c-142c-419c-a58c-37758578cf8b"/>
+        <COMPID name="Banque de clients" mc="Standard.Class" uid="f56a1587-2e2a-42db-8e45-a0b9a06e09cd"/>
+        <COMPID name="Livre" mc="Standard.Class" uid="f98941a3-9d0f-490f-82dd-45f92af304f3"/>
+        <COMPID name="Emprunt" mc="Standard.Class" uid="cb61f075-d178-4ad1-9737-4657d30d1d0f"/>
+        <COMPID name="Compte Client" mc="Standard.Class" uid="45403356-1edd-4bf0-947a-0a8df3747055"/>
+        <COMPID name="Client" mc="Standard.Class" uid="b06174ad-ad27-4899-83e7-27d6bf6dc5ea"/>
+        <COMPID name="Livres" mc="Standard.Class" uid="be422a19-0cc6-4a77-a898-c926ee5361d4"/>
+        <COMPID name="Emprunts" mc="Standard.Class" uid="b1268c84-874f-4f71-bc24-63ed6283baf5"/>
+        <COMPID name="Comptes Clients" mc="Standard.Class" uid="ce8b7d49-35d0-42d8-b27c-886ea3a78b02"/>
       </COMP>
       <COMP relation="Product">
         <COMPID name="Modèle du domaine" mc="Standard.ClassDiagram" uid="b3469607-368f-4fbb-aa57-91b6a1c430bf"/>
         <COMPID name="Diagramme de Classes Swing" mc="Standard.ClassDiagram" uid="5a475e1a-f188-447e-b077-3544549fcec2"/>
         <COMPID name="Diagramme de Classes HTML" mc="Standard.ClassDiagram" uid="93194287-86fa-408e-a405-caebf66ea321"/>
+        <COMPID name="Définition base SQL" mc="Standard.ClassDiagram" uid="755c4b8b-fabf-4e86-a42d-55d4295c96cc"/>
       </COMP>
     </DEPENDENCIES>
   </OBJECT>

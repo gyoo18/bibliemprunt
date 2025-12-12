@@ -1,5 +1,10 @@
-#Mon Dec 08 21:16:08 EST 2025
+#Fri Dec 12 14:53:09 EST 2025
 org.modelio.app.module.propertytab.GModule\ [id\='JavaDesigner',\ version\='5.4.00',\ type\='MODULE',\ definitionScope\='LOCAL',\ state\='MOUNTED']\ runtime\ module_.org.modelio.full.perspective.parentId=app.ui.ext_com.partstack.bottom
+org.modelio.app.diagram.editor.OpenedDiagrams0='Diagramme de Classes HTML' {93194287-86fa-408e-a405-caebf66ea321} Standard.ClassDiagram
 org.modelio.app.module.propertytab.GModule\ [id\='JavaDesigner',\ version\='5.4.00',\ type\='MODULE',\ definitionScope\='LOCAL',\ state\='MOUNTED']\ runtime\ module_.org.modelio.development.perspective.parentId=app.ui.ext_com.partstack.bottom
+org.modelio.app.diagram.editor.OpenedDiagrams3='DSS cas utilisation emprunt' {08f89ebe-b2f2-401c-bbf5-54bad30d73ba} Standard.SequenceDiagram
+org.modelio.app.diagram.editor.OpenedDiagrams4='D\u00E9finition base SQL' {755c4b8b-fabf-4e86-a42d-55d4295c96cc} Standard.ClassDiagram
+org.modelio.app.diagram.editor.OpenedDiagrams1='Mod\u00E8le du domaine' {b3469607-368f-4fbb-aa57-91b6a1c430bf} Standard.ClassDiagram
+org.modelio.app.diagram.editor.OpenedDiagrams2='Initialisation Syst\u00E8me Swing' {180f07df-7662-45d1-a1a5-d8443ca39b13} Standard.CommunicationDiagram
 org.modelio.app.module.propertytab.GModule\ [id\='JavaDesigner',\ version\='5.4.00',\ type\='MODULE',\ definitionScope\='LOCAL',\ state\='MOUNTED']\ runtime\ module_.org.modelio.app.ui.model.perspective.parentId=org.modelio.app.bottom.parts
 org.modelio.app.module.propertytab.GModule\ [id\='JavaDesigner',\ version\='5.4.00',\ type\='MODULE',\ definitionScope\='LOCAL',\ state\='MOUNTED']\ runtime\ module_.org.modelio.diagram.perspective.parentId=app.ui.ext_com.partstack.right

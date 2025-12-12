@@ -1,7 +1,7 @@
 <?xml version="1.0" ?>
-<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="Banque de livres" version="4">
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="BanqueLivres" version="4">
   <OBJECT>
-    <ID name="Banque de livres" mc="Standard.Class" uid="fc808c4d-7936-484b-ae3b-44c72960a04a"/>
+    <ID name="BanqueLivres" mc="Standard.Class" uid="fc808c4d-7936-484b-ae3b-44c72960a04a"/>
     <PID name="bibliemprunt" mc="Standard.Package" uid="63726160-f92e-4a0a-950d-837337e72bf8"/>
     <ATTRIBUTES>
       <ATT name="IsActive">false</ATT>
@@ -11,7 +11,7 @@
       <ATT name="IsLeaf">false</ATT>
       <ATT name="IsRoot">false</ATT>
       <ATT name="Visibility">Public</ATT>
-      <ATT name="Name"><![CDATA[Banque de livres]]></ATT>
+      <ATT name="Name"><![CDATA[BanqueLivres]]></ATT>
       <ATT name="status">1970354901745664</ATT>
     </ATTRIBUTES>
     <DEPENDENCIES>
