@@ -3,7 +3,7 @@
  */
 package bibliemprunt;
 
-public class App {
+public class Bibliothèque {
 
     public static void main(String[] args) {
         System.out.println("Hello World!");

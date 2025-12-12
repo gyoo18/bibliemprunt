@@ -1,23 +1,26 @@
 # Bibliemprunt, manuel du contributeur
 
-Ce projet repose sur Java 21 et utilise Gradle sur Groovy comme système d'assemblage.
+Ce projet repose sur :
+
+- **Java 21** pour le code principal
+- **Gradle 9.2** sur **Groovy 4.0** pour le système d'assemblage
+- **JUnit 4.13** pour les tests unitaires
+- **Java Swing** pour l'interface graphique
+- ~~**SQLite** pour la gestion de base de donnée~~ *À venir.*
 
 Voici une décomposition sommaire du répertoire :
 
 ```python
-app
+src
 ├── build.gradle    # fichier de spécification de l'assemblage
-├── src
-│   ├── main
-│   │   ├── java
-│   │   │   └── bibliemprunt
-│   │   │       └── ...         # code
-│   │   └── resources           # ressources importantes au fonctionnement du code
-│   └── test
-│       ├── java
-│       │   └── bibliemprunt
-│       │       └── ...         # tests
-│       └── resources           # ressources pour les tests
+├── main
+│   └── bibliemprunt
+│       └── ...         # code
+├──test
+│  └── bibliemprunt
+│      └── ...          # tests
+├── resources
+│   └── ...             # ressources importantes au fonctionnement du code
 └── build               # dossier généré après l'assemblage
     ├── reports
     │   └── ...         # contient des fichiers html faisant état des rapports de compilation
@@ -50,3 +53,26 @@ Voici une décomposition sommaire des branches git :
 3. **rapport** Cette branche sert à conserver les modifications au rapport
 4. **modelio** Tout travail effectué sur modelio et à la modélisation doit être confiné à cette branche.
 5. **feature/Ajout-des-classes-de-bases** Branche d'ajout des classes de bases.
+
+Voici une décomposition de l'architecture du code en tant que tel. Veuillez vous référer aux diagrammes UML
+présents dans rapport/diagrammes pour plus d'information.
+
+```python
+src/main/bibliemprunt
+├── Bibliothèque.java           # Main
+├── Borne.java                  # Contrôleur de la borne d'emprunt de livres
+├── Paramètre.java              # Paramètres globaux de l'application
+├── données                     # Divers gestionnaires de données
+│   ├── BanqueClient.java
+│   ├── BanqueEmprunts.java
+│   ├── BanqueLivres.java
+│   └── SQLInterface.java
+├── gui                         # Système d'interface utilisateur de la borne
+│   ├── GUI.java
+│   ├── Page.java
+│   └── UsinePages.java
+└── models                      # Éléments conceptuels pour la manipulation dans Java
+    ├── CompteClient.java
+    ├── Emprunt.java
+    └── Livre.java
+```
