@@ -21,6 +21,9 @@ dependencies {
 
     // This dependency is used by the application.
     implementation libs.guava
+
+    // Gson for JSON parsing
+    implementation 'com.google.code.gson:gson:2.10.1'
 }
 
 // Apply a specific Java toolchain to ease working on different environments.
@@ -40,4 +43,8 @@ sourceSets {
 application {
     // Define the main class for the application.
     mainClass = 'bibliemprunt.Bibliothèque'
+}
+
+run {
+    standardInput = System.in
 }

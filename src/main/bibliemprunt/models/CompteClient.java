@@ -7,14 +7,14 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class CompteClient {
-    public final int numeroCompte;
-    public final int NIP;
+    public final String numeroCompte;
+    public final String NIP;
     public final String nom;
     private List<Emprunt> historiqueEmprunts;
     private boolean compteBloque;
     private long tempsBloque;
 
-    public CompteClient(int numeroCompte, int NIP, String nom) {
+    public CompteClient(String numeroCompte, String NIP, String nom) {
         this.numeroCompte = numeroCompte;
         this.NIP = NIP;
         this.nom = nom;
