@@ -4,39 +4,46 @@ import bibliemprunt.models.CompteClient;
 import bibliemprunt.models.Emprunt;
 import bibliemprunt.models.Livre;
 
+import java.util.ArrayList;
+
 public class BanqueEmprunts {
+    private static ArrayList<Emprunt> emprunts = new ArrayList<>();
+
     public static void initialiser() {
-        // TODO implémenter initialiser
-        throw new UnsupportedOperationException();
+        // Aucune initialisation nécessaire, la liste commence vide
     }
 
     public static Emprunt avoirEmprunt(Livre livre) {
-        // TODO implémenter avoirEmprunt
-        throw new UnsupportedOperationException();
+        for (Emprunt emprunt : emprunts) {
+            if (emprunt.livre.RFID == livre.RFID) {
+                return emprunt;
+            }
+        }
+        return null;
     }
 
     public static Emprunt[] listeEmpruntsActifs(CompteClient compteClient) {
-        // TODO implémenter listeEmpruntsActifs
-        throw new UnsupportedOperationException();
+        return emprunts.stream()
+                .filter(e -> e.client.numeroCompte.equals(compteClient.numeroCompte))
+                .toArray(Emprunt[]::new);
     }
 
     public static void enregistrerEmprunt(Emprunt emprunt) {
-        // TODO implémenter enregistrerEmprunt
-        throw new UnsupportedOperationException();
+        emprunts.add(emprunt);
     }
 
     public static Emprunt[] listeEmpruntsGlobal() {
-        // TODO implémenter listeEmpruntsGlobal
-        throw new UnsupportedOperationException();
+        return emprunts.toArray(new Emprunt[0]);
     }
 
     public static Emprunt[] listeHistorique() {
-        // TODO implémenter listeHistorique
-        throw new UnsupportedOperationException();
+        return emprunts.toArray(new Emprunt[0]);
     }
 
     public static Emprunt avoirEmprunt(int empruntID) {
-        // TODO implémenter avoirEmprunt
-        throw new UnsupportedOperationException();
+        if (empruntID >= 0 && empruntID < emprunts.size()) {
+            return emprunts.get(empruntID);
+        }
+        return null;
     }
 }
