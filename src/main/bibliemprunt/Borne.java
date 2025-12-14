@@ -115,6 +115,31 @@ public class Borne {
         return 0;
     }
 
+    public Livre[] avoirLivresDisponibles() {
+        Livre[] livres = BanqueLivres.avoirListeLivres();
+        int nLivresDispo = 0;
+        for (int i = 0; i < livres.length; i++) {
+            if (BanqueEmprunts.estLivremprunté(livres[i])) {
+                livres[i] = null;
+                continue;
+            }
+            nLivresDispo++;
+        }
+
+        Livre[] livresDispo = new Livre[nLivresDispo];
+        int i = 0;
+        for (Livre livre : livres) {
+            if (livre == null) {
+                continue;
+            }
+
+            livresDispo[i] = livre;
+            i++;
+        }
+
+        return livresDispo;
+    }
+
     public void annulerEmprunt(Emprunt emprunt) {
         empruntsEnCours.remove(emprunt);
     }

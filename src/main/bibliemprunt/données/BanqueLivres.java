@@ -55,4 +55,10 @@ public class BanqueLivres {
     public static void retirerLivre(int RFID) {
         livres.removeIf(livre -> livre.RFID == RFID);
     }
+
+    public static Livre[] avoirListeLivres() {
+        Livre[] l = new Livre[livres.size()];
+        livres.toArray(l);
+        return l;
+    }
 }

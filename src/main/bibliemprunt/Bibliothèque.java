@@ -13,6 +13,7 @@ import java.util.Scanner;
 public class Bibliothèque {
 
     private static Borne borne;
+    private static boolean estActive;
 
     public static void main(String[] args) {
         initialisation();
@@ -31,15 +32,22 @@ public class Bibliothèque {
 
         borne = new Borne();
 
-        Runtime.getRuntime().addShutdownHook(new Thread() {
+        Runtime.getRuntime().addShutdownHook(new Thread("GestionnaireSGKILL") {
             @Override
             public void run() {
-                borne.sigkillQuitter();
-                borne.miseÀJour();
-                destruction();
+                if (estActive) {
+                    for (Thread t : Thread.getAllStackTraces().keySet()) {
+                        t.interrupt();
+                    }
+
+                    borne.sigkillQuitter();
+                    borne.miseÀJour();
+                    destruction();
+                }
             }
         });
 
+        estActive = true;
         System.out.println("Système initialisé avec succès!\n");
     }
 
@@ -50,9 +58,12 @@ public class Bibliothèque {
     }
 
     private static void destruction() {
-        System.out.println("Fermeture du système...");
+        if (estActive) {
+            System.out.println("Fermeture du système...");
 
-        borne.destruction();
-        System.out.println("\nAu revoir!");
+            borne.destruction();
+            estActive = false;
+            System.out.println("\nAu revoir!");
+        }
     }
 }

@@ -7,7 +7,6 @@ import java.util.Calendar;
 import java.util.Scanner;
 
 import bibliemprunt.Borne;
-import bibliemprunt.Paramètre;
 import bibliemprunt.données.BanqueEmprunts;
 import bibliemprunt.données.BanqueLivres;
 import bibliemprunt.models.CompteClient;
@@ -20,6 +19,9 @@ enum ÉtatGUI {
     COMPTE_INCONNU,
     COMPTE_BLOQUÉ,
     EMPRUNTS,
+    EMPRUNTS_EN_COURS,
+    EMPRUNTS_ACTIFS,
+    LIVRES_DISPONIBLES,
     ANNULER_EMPRUNT,
     ANNULER_TRANSACTION,
     TRANSACTION_ANNULÉE,
@@ -84,6 +86,15 @@ public class GUI {
             case EMPRUNTS:
                 étatEmprunt();
                 break;
+            case EMPRUNTS_EN_COURS:
+                étatEmpruntsEnCours();
+                break;
+            case EMPRUNTS_ACTIFS:
+                étatEmpruntsActifs();
+                break;
+            case LIVRES_DISPONIBLES:
+                étatLivresDisponibles();
+                break;
             case ANNULER_EMPRUNT:
                 étatAnnulerEmprunt();
                 break;
@@ -112,128 +123,6 @@ public class GUI {
                 étatQuitter();
                 break;
         }
-        /*
-         * boolean continuer = true;
-         * 
-         * while (continuer) {
-         * try {
-         * // Authentification
-         * System.out.println("\n=== Authentification ===");
-         * System.out.print("Nom d'utilisateur (ou 'quit' pour quitter): ");
-         * String username = scanner.nextLine().trim();
-         * 
-         * if (username.equalsIgnoreCase("quit")) {
-         * continuer = false;
-         * break;
-         * }
-         * 
-         * System.out.print("NIP: ");
-         * String nip = scanner.nextLine().trim();
-         * 
-         * // Démarrer session
-         * borne.démarrerSession(username, nip);
-         * System.out.println("✓ Authentification réussie! Bienvenue " +
-         * borne.getClientSession().nom);
-         * 
-         * // Boucle d'emprunt
-         * boolean sessionActive = true;
-         * while (sessionActive) {
-         * System.out.println("\n=== Menu ===");
-         * System.out.println("1. Emprunter un livre (scanner RFID)");
-         * System.out.println("2. Voir emprunts en cours");
-         * System.out.println("3. Confirmer et finaliser");
-         * System.out.println("4. Annuler et fermer session");
-         * System.out.print("Choix: ");
-         * 
-         * String choix = scanner.nextLine().trim();
-         * 
-         * switch (choix) {
-         * case "1":
-         * System.out.print("Entrez le RFID du livre: ");
-         * try {
-         * int rfid = Integer.parseInt(scanner.nextLine().trim());
-         * Emprunt emprunt = borne.emprunterLivre(rfid);
-         * System.out.println(
-         * "✓ Livre ajouté: " + emprunt.livre.titre + " par " + emprunt.livre.auteur);
-         * } catch (NumberFormatException e) {
-         * System.out.println("✗ RFID invalide");
-         * } catch (IllegalArgumentException | IllegalStateException e) {
-         * System.out.println("✗ " + e.getMessage());
-         * }
-         * break;
-         * 
-         * case "2":
-         * System.out.println("\n=== Emprunts en cours ===");
-         * 
-         * // Debug
-         * Emprunt[] tousEmprunts = BanqueEmprunts.listeEmpruntsGlobal();
-         * System.out.println("[DEBUG] Total emprunts dans BanqueEmprunts: " +
-         * tousEmprunts.length);
-         * 
-         * // Afficher les emprunts déjà confirmés
-         * Emprunt[] empruntsConfirmes =
-         * BanqueEmprunts.listeEmpruntsActifs(borne.getClientSession());
-         * System.out.println("[DEBUG] Emprunts pour ce client: " +
-         * empruntsConfirmes.length);
-         * 
-         * if (empruntsConfirmes.length > 0) {
-         * System.out.println("Emprunts confirmés:");
-         * for (Emprunt e : empruntsConfirmes) {
-         * System.out.println("- " + e.livre.titre + " (" + e.livre.auteur + ")");
-         * }
-         * }
-         * 
-         * // Afficher les emprunts de la session actuelle (non confirmés)
-         * if (!borne.getEmpruntsEnCours().isEmpty()) {
-         * System.out.println("\nEmprunts en attente de confirmation:");
-         * for (Emprunt e : borne.getEmpruntsEnCours()) {
-         * System.out.println("- " + e.livre.titre + " (" + e.livre.auteur + ")");
-         * }
-         * }
-         * 
-         * if (empruntsConfirmes.length == 0 && borne.getEmpruntsEnCours().isEmpty()) {
-         * System.out.println("Aucun emprunt");
-         * }
-         * break;
-         * 
-         * case "3":
-         * if (borne.getEmpruntsEnCours().isEmpty()) {
-         * System.out.println("Aucun emprunt à confirmer");
-         * } else {
-         * int nbEmpruntsAConfirmer = borne.getEmpruntsEnCours().size();
-         * borne.confirmerEmprunts();
-         * System.out.println(
-         * "✓ " + nbEmpruntsAConfirmer + " emprunt(s) confirmé(s) et enregistré(s)!");
-         * System.out.println("[DEBUG] Total emprunts après confirmation: "
-         * + BanqueEmprunts.listeEmpruntsGlobal().length);
-         * System.out.println("Merci et bonne lecture!");
-         * }
-         * borne.fermerSession();
-         * sessionActive = false;
-         * break;
-         * 
-         * case "4":
-         * borne.annulerTransaction();
-         * borne.fermerSession();
-         * System.out.println("Session fermée");
-         * sessionActive = false;
-         * break;
-         * 
-         * default:
-         * System.out.println("Choix invalide");
-         * }
-         * }
-         * 
-         * } catch (IllegalArgumentException e) {
-         * System.out.println("✗ Authentification échouée: identifiants incorrects");
-         * } catch (IllegalStateException e) {
-         * System.out.println("✗ " + e.getMessage());
-         * } catch (Exception e) {
-         * System.out.println("✗ Erreur: " + e.getMessage());
-         * e.printStackTrace();
-         * }
-         * }
-         */
     }
 
     public void destruction() {
@@ -365,16 +254,19 @@ public class GUI {
                             "--- Emprunts ---\n" +
                             "\n" +
                             "1. Emprunter un livre\n" +
-                            "2. Annuler un emprunt\n" +
-                            "3. Annuler la transaction\n" +
-                            "4. Terminer la transaction\n\n");
+                            "2. Voir les emprunts en cours\n" +
+                            "3. Voir tous vos emprunts actifs\n" +
+                            "4. Voir les livres disponibles\n" +
+                            "5. Annuler un emprunt\n" +
+                            "6. Annuler la transaction\n" +
+                            "7. Terminer la transaction\n\n");
             this.estÉtatInitialisation = false;
         }
 
         System.out.print("> ");
         String réponseString = scanner.nextLine();
-        if (réponseString.length() != 1 || "1234".indexOf(réponseString.charAt(0)) == -1) {
-            System.out.println("[" + ANSI_ROUGE + "ERREUR" + ANSI_CLAIR + "] Veuillez spécifier une option [1-4]");
+        if (réponseString.length() != 1 || "1234567".indexOf(réponseString.charAt(0)) == -1) {
+            System.out.println("[" + ANSI_ROUGE + "ERREUR" + ANSI_CLAIR + "] Veuillez spécifier une option [1-7]");
             return;
         }
 
@@ -419,27 +311,100 @@ public class GUI {
 
         switch (réponse) {
             case 2:
-                this.étatGUI = ÉtatGUI.ANNULER_EMPRUNT;
+                this.étatGUI = ÉtatGUI.EMPRUNTS_EN_COURS;
                 break;
             case 3:
-                this.étatGUI = ÉtatGUI.ANNULER_TRANSACTION;
+                this.étatGUI = ÉtatGUI.EMPRUNTS_ACTIFS;
                 break;
             case 4:
+                this.étatGUI = ÉtatGUI.LIVRES_DISPONIBLES;
+                break;
+            case 5:
+                this.étatGUI = ÉtatGUI.ANNULER_EMPRUNT;
+                break;
+            case 6:
+                this.étatGUI = ÉtatGUI.ANNULER_TRANSACTION;
+                break;
+            case 7:
                 this.étatGUI = ÉtatGUI.DEMANDER_REÇUS;
                 break;
         }
         this.estÉtatInitialisation = true;
     }
 
+    private void étatEmpruntsEnCours() {
+        effacerÉcran();
+        System.out.print(
+                "=== " + ANSI_CYAN + "BIBLIEMPRUNT | SYSTÈME D'EMPRUNT DE LIVRES" + ANSI_CLAIR + " ===\n" +
+                        "\n" +
+                        "--- Emprunts en cours ---\n" +
+                        "\n" +
+                        "Vos emprunts en cours :\n");
+
+        ArrayList<Emprunt> emprunts = this.borne.getEmpruntsEnCours();
+        for (int i = 0; i < emprunts.size(); i++) {
+            Emprunt emprunt = emprunts.get(i);
+            Livre livre = emprunt.livre;
+            System.out.println(i + ": " + livre.RFID + "\t" + livre.titre + " (" + livre.auteur + ") "
+                    + livre.anneeParution + "\t" + livre.nbPages + "pgs");
+        }
+
+        scanner.nextLine();
+        this.étatGUI = ÉtatGUI.EMPRUNTS;
+        this.estÉtatInitialisation = true;
+    }
+
+    private void étatEmpruntsActifs() {
+        effacerÉcran();
+        System.out.print(
+                "=== " + ANSI_CYAN + "BIBLIEMPRUNT | SYSTÈME D'EMPRUNT DE LIVRES" + ANSI_CLAIR + " ===\n" +
+                        "\n" +
+                        "--- Emprunts Actifs ---\n" +
+                        "\n" +
+                        "La liste des livres que vous n'avez toujours pas retourné :\n");
+
+        Emprunt[] emprunts = BanqueEmprunts.listeEmpruntsActifs(this.borne.getClientSession());
+        for (int i = 0; i < emprunts.length; i++) {
+            Emprunt emprunt = emprunts[i];
+            Livre livre = emprunt.livre;
+            System.out.println(i + ": " + livre.RFID + "\t" + livre.titre + " (" + livre.auteur + ") "
+                    + livre.anneeParution + "\t" + livre.nbPages + "pgs");
+        }
+
+        scanner.nextLine();
+        this.étatGUI = ÉtatGUI.EMPRUNTS;
+        this.estÉtatInitialisation = true;
+    }
+
+    private void étatLivresDisponibles() {
+        effacerÉcran();
+        System.out.print(
+                "=== " + ANSI_CYAN + "BIBLIEMPRUNT | SYSTÈME D'EMPRUNT DE LIVRES" + ANSI_CLAIR + " ===\n" +
+                        "\n" +
+                        "--- Livres disponibles---\n" +
+                        "\n" +
+                        "Liste des livres disponibles :\n");
+
+        Livre[] livres = this.borne.avoirLivresDisponibles();
+        for (int i = 0; i < livres.length; i++) {
+            System.out.println(livres[i].RFID + ":\t" + livres[i].titre + " (" + livres[i].auteur + ") "
+                    + livres[i].anneeParution + "\t" + livres[i].nbPages + "pgs");
+        }
+
+        scanner.nextLine();
+        this.étatGUI = ÉtatGUI.EMPRUNTS;
+        this.estÉtatInitialisation = true;
+    }
+
     private void étatAnnulerEmprunt() {
         if (this.estÉtatInitialisation) {
+            effacerÉcran();
             System.out.print(
                     "=== " + ANSI_CYAN + "BIBLIEMPRUNT | SYSTÈME D'EMPRUNT DE LIVRES" + ANSI_CLAIR + " ===\n" +
                             "\n" +
                             "--- Annuler un emprunt ---\n" +
                             "\n" +
                             "Vos emprunts en cours :\n");
-            effacerÉcran();
             this.estÉtatInitialisation = false;
         }
 
@@ -479,7 +444,7 @@ public class GUI {
                 continue;
             }
 
-            emprunts.remove(retirer[i]);
+            this.borne.annulerEmprunt(retirer[i]);
         }
 
         System.out.println("[" + ANSI_VERT + "LIVRES RETIRÉS" + ANSI_CLAIR + "]");
@@ -579,14 +544,23 @@ public class GUI {
 
         System.out.print("Souhaitez-vous imprimer un reçus? [o|n] : ");
         String réponse = scanner.nextLine();
-        if (réponse.toLowerCase().compareTo("n") == 0 || réponse.toLowerCase().compareTo("non") == 0) {
+        if (réponse.toLowerCase().compareTo("n") != 0 && réponse.toLowerCase().compareTo("non") != 0) {
+            this.étatGUI = ÉtatGUI.AFFICHER_REÇUS;
+            this.estÉtatInitialisation = true;
+            return;
+        }
+
+        System.out.print("Souhaitez-vous vous déconnecter? [o|n] : ");
+        réponse = scanner.nextLine();
+        if (réponse.toLowerCase().compareTo("n") != 0 && réponse.toLowerCase().compareTo("non") != 0) {
             this.étatGUI = ÉtatGUI.ATTENTE_AUTENTIFICATION;
             // Le reçus a besoin des emprunts en cours pour être imprimé et cette
             // fonction vide la liste d'emprunts en cours.
             this.borne.confirmerEmprunts();
             this.borne.fermerSession();
         } else {
-            this.étatGUI = ÉtatGUI.AFFICHER_REÇUS;
+            this.étatGUI = ÉtatGUI.EMPRUNTS;
+            this.estÉtatInitialisation = true;
         }
 
         this.estÉtatInitialisation = true;
@@ -632,19 +606,20 @@ public class GUI {
     }
 
     private void étatQuitter() {
-        effacerÉcran();
-        System.out.println(
-                "=== " + ANSI_CYAN + "BIBLIEMPRUNT | SYSTÈME D'EMPRUNT DE LIVRES" + ANSI_CLAIR + " ===\n" +
-                        "\n" +
-                        "--- Quitter ---\n" +
-                        "\n" +
-                        "Merci d'avoir utilisé Bibliemprunt.\n" +
-                        "Bonne lecture :)");
-        System.out.flush();
-        scanner.nextLine();
+        if (estÉtatInitialisation) {
+            effacerÉcran();
+            System.out.println(
+                    "=== " + ANSI_CYAN + "BIBLIEMPRUNT | SYSTÈME D'EMPRUNT DE LIVRES" + ANSI_CLAIR + " ===\n" +
+                            "\n" +
+                            "--- Quitter ---\n" +
+                            "\n" +
+                            "Merci d'avoir utilisé Bibliemprunt.\n" +
+                            "Bonne lecture :)");
+            scanner.nextLine();
 
-        this.borne.quitter();
-        return;
+            this.borne.quitter();
+            this.estÉtatInitialisation = false;
+        }
     }
 
     private void effacerÉcran() {
