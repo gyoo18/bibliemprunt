@@ -22,8 +22,8 @@ public class BanqueClient {
             for (int i = 0; i < clientsArray.size(); i++) {
                 JsonObject clientJson = clientsArray.get(i).getAsJsonObject();
                 String numeroCompte = clientJson.get("numeroCompte").getAsString();
-                String nip = clientJson.get("nip").getAsString();
-                String nom = clientJson.get("nom").getAsString();
+                int nip = clientJson.get("nip").getAsInt();
+                String nom = clientJson.get("prenom").getAsString() + " " + clientJson.get("nom").getAsString();
 
                 CompteClient client = new CompteClient(numeroCompte, nip, nom);
                 clients.add(client);
@@ -34,10 +34,23 @@ public class BanqueClient {
         }
     }
 
-    public static CompteClient authentifierClient(String numéroCompte, String NIP) {
+    /**
+     * Tente d'authentifier le client avec le nom d'utilisateur et le NIP fournit et
+     * renvoie le compte client correspondant. Si l'authentification échoue, renvoie
+     * null.
+     * 
+     * @param numéroCompte
+     * @param NIP
+     * @return CompteClient ou null
+     */
+    public static CompteClient authentifierClient(String numéroCompte, int NIP) {
         for (CompteClient client : clients) {
-            if (client.numeroCompte.equals(numéroCompte) && client.NIP.equals(NIP)) {
-                return client;
+            if (client.numeroCompte.equals(numéroCompte)) {
+                if (client.authentifier(NIP)) {
+                    return client;
+                } else {
+                    return null;
+                }
             }
         }
         return null;
@@ -51,5 +64,15 @@ public class BanqueClient {
 
     public static void retirerClient(CompteClient client) {
         clients.remove(client);
+    }
+
+    public static boolean clientExiste(String nomUtilisateur) {
+        for (CompteClient client : clients) {
+            if (client.numeroCompte.equals(nomUtilisateur)) {
+                return true;
+            }
+        }
+
+        return false;
     }
 }

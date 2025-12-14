@@ -4,10 +4,14 @@ import bibliemprunt.models.CompteClient;
 import bibliemprunt.models.Emprunt;
 import bibliemprunt.models.Livre;
 
+import java.sql.Date;
 import java.util.ArrayList;
+import java.util.Calendar;
 
 public class BanqueEmprunts {
     private static ArrayList<Emprunt> emprunts = new ArrayList<>();
+
+    private final static long JOURS_EN_MILLIS = 86_400_000;
 
     public static void initialiser() {
         // Aucune initialisation nécessaire, la liste commence vide
@@ -20,6 +24,18 @@ public class BanqueEmprunts {
             }
         }
         return null;
+    }
+
+    public static boolean estLivremprunté(Livre livre) {
+        Date date = new Date(0);
+        Calendar cal = Calendar.getInstance();
+        for (Emprunt emprunt : emprunts) {
+            date.setTime(emprunt.dateEmprunt.getTime() + (long) emprunt.getDureeEmprunt() * JOURS_EN_MILLIS);
+            if (emprunt.livre.RFID == livre.RFID && (date.after(cal.getTime()) || date.equals(cal.getTime()))) {
+                return true;
+            }
+        }
+        return false;
     }
 
     public static Emprunt[] listeEmpruntsActifs(CompteClient compteClient) {

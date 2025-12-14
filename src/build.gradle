@@ -45,6 +45,10 @@ application {
     mainClass = 'bibliemprunt.Bibliothèque'
 }
 
+tasks.withType(AbstractTestTask).configureEach {
+    failOnNoDiscoveredTests = false
+}
+
 run {
     standardInput = System.in
 }

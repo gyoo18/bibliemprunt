@@ -12,137 +12,47 @@ import java.util.Scanner;
 
 public class Bibliothèque {
 
+    private static Borne borne;
+
     public static void main(String[] args) {
-        // Initialisation du système
-        System.out.println("=== Système de Borne d'Emprunt - Bibliothèque ===");
-        System.out.println("Initialisation...");
+        initialisation();
+        exécution();
+        destruction();
+    }
+
+    private static void initialisation() {
+        System.out.println("Système de Borne d'Emprunt");
+        System.out.println("Initialisation de la bibliothèque...");
 
         Paramètre.initialiser();
         BanqueClient.initialiser();
         BanqueLivres.initialiser();
         BanqueEmprunts.initialiser();
 
-        Borne borne = new Borne();
+        borne = new Borne();
+
+        Runtime.getRuntime().addShutdownHook(new Thread() {
+            @Override
+            public void run() {
+                borne.sigkillQuitter();
+                borne.miseÀJour();
+                destruction();
+            }
+        });
 
         System.out.println("Système initialisé avec succès!\n");
+    }
 
-        // Interface CLI
-        Scanner scanner = new Scanner(System.in);
-        boolean continuer = true;
-
-        while (continuer) {
-            try {
-                // Authentification
-                System.out.println("\n=== Authentification ===");
-                System.out.print("Nom d'utilisateur (ou 'quit' pour quitter): ");
-                String username = scanner.nextLine().trim();
-
-                if (username.equalsIgnoreCase("quit")) {
-                    continuer = false;
-                    break;
-                }
-
-                System.out.print("NIP: ");
-                String nip = scanner.nextLine().trim();
-
-                // Démarrer session
-                borne.démarrerSession(username, nip);
-                System.out.println("✓ Authentification réussie! Bienvenue " + borne.getClientSession().nom);
-
-                // Boucle d'emprunt
-                boolean sessionActive = true;
-                while (sessionActive) {
-                    System.out.println("\n=== Menu ===");
-                    System.out.println("1. Emprunter un livre (scanner RFID)");
-                    System.out.println("2. Voir emprunts en cours");
-                    System.out.println("3. Confirmer et finaliser");
-                    System.out.println("4. Annuler et fermer session");
-                    System.out.print("Choix: ");
-
-                    String choix = scanner.nextLine().trim();
-
-                    switch (choix) {
-                        case "1":
-                            System.out.print("Entrez le RFID du livre: ");
-                            try {
-                                int rfid = Integer.parseInt(scanner.nextLine().trim());
-                                Emprunt emprunt = borne.emprunterLivre(rfid);
-                                System.out.println("✓ Livre ajouté: " + emprunt.livre.titre + " par " + emprunt.livre.auteur);
-                            } catch (NumberFormatException e) {
-                                System.out.println("✗ RFID invalide");
-                            } catch (IllegalArgumentException | IllegalStateException e) {
-                                System.out.println("✗ " + e.getMessage());
-                            }
-                            break;
-
-                        case "2":
-                            System.out.println("\n=== Emprunts en cours ===");
-
-                            // Debug
-                            Emprunt[] tousEmprunts = BanqueEmprunts.listeEmpruntsGlobal();
-                            System.out.println("[DEBUG] Total emprunts dans BanqueEmprunts: " + tousEmprunts.length);
-
-                            // Afficher les emprunts déjà confirmés
-                            Emprunt[] empruntsConfirmes = BanqueEmprunts.listeEmpruntsActifs(borne.getClientSession());
-                            System.out.println("[DEBUG] Emprunts pour ce client: " + empruntsConfirmes.length);
-
-                            if (empruntsConfirmes.length > 0) {
-                                System.out.println("Emprunts confirmés:");
-                                for (Emprunt e : empruntsConfirmes) {
-                                    System.out.println("- " + e.livre.titre + " (" + e.livre.auteur + ")");
-                                }
-                            }
-
-                            // Afficher les emprunts de la session actuelle (non confirmés)
-                            if (!borne.getEmpruntsEnCours().isEmpty()) {
-                                System.out.println("\nEmprunts en attente de confirmation:");
-                                for (Emprunt e : borne.getEmpruntsEnCours()) {
-                                    System.out.println("- " + e.livre.titre + " (" + e.livre.auteur + ")");
-                                }
-                            }
-
-                            if (empruntsConfirmes.length == 0 && borne.getEmpruntsEnCours().isEmpty()) {
-                                System.out.println("Aucun emprunt");
-                            }
-                            break;
-
-                        case "3":
-                            if (borne.getEmpruntsEnCours().isEmpty()) {
-                                System.out.println("Aucun emprunt à confirmer");
-                            } else {
-                                int nbEmpruntsAConfirmer = borne.getEmpruntsEnCours().size();
-                                borne.confirmerEmprunts();
-                                System.out.println("✓ " + nbEmpruntsAConfirmer + " emprunt(s) confirmé(s) et enregistré(s)!");
-                                System.out.println("[DEBUG] Total emprunts après confirmation: " + BanqueEmprunts.listeEmpruntsGlobal().length);
-                                System.out.println("Merci et bonne lecture!");
-                            }
-                            borne.fermerSession();
-                            sessionActive = false;
-                            break;
-
-                        case "4":
-                            borne.annulerTransaction();
-                            borne.fermerSession();
-                            System.out.println("Session fermée");
-                            sessionActive = false;
-                            break;
-
-                        default:
-                            System.out.println("Choix invalide");
-                    }
-                }
-
-            } catch (IllegalArgumentException e) {
-                System.out.println("✗ Authentification échouée: identifiants incorrects");
-            } catch (IllegalStateException e) {
-                System.out.println("✗ " + e.getMessage());
-            } catch (Exception e) {
-                System.out.println("✗ Erreur: " + e.getMessage());
-                e.printStackTrace();
-            }
+    private static void exécution() {
+        while (borne.estActive) {
+            borne.miseÀJour();
         }
+    }
 
-        scanner.close();
+    private static void destruction() {
+        System.out.println("Fermeture du système...");
+
+        borne.destruction();
         System.out.println("\nAu revoir!");
     }
 }
