@@ -7,20 +7,39 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class CompteClient {
-    public final int numeroCompte;
+    public final String numeroCompte;
     public final int NIP;
     public final String nom;
     private List<Emprunt> historiqueEmprunts;
     private boolean compteBloque;
     private long tempsBloque;
+    private byte nbTentativesAuthentification;
 
-    public CompteClient(int numeroCompte, int NIP, String nom) {
+    private final static long JOURS_EN_MILLIS = 86_400_000;
+
+    public CompteClient(String numeroCompte, int NIP, String nom) {
         this.numeroCompte = numeroCompte;
         this.NIP = NIP;
         this.nom = nom;
         this.historiqueEmprunts = new ArrayList<>();
         this.compteBloque = false;
         this.tempsBloque = 0;
+        this.nbTentativesAuthentification = 0;
+    }
+
+    public boolean authentifier(int NIP) {
+        if (this.NIP != NIP) {
+            this.nbTentativesAuthentification++;
+
+            if (this.nbTentativesAuthentification >= 3) {
+                bloquerCompte();
+            }
+
+            return false;
+        }
+
+        this.nbTentativesAuthentification = 0;
+        return true;
     }
 
     public List<Emprunt> getHistoriqueEmprunts() {
@@ -28,14 +47,12 @@ public class CompteClient {
     }
 
     public List<Emprunt> avoirEmpruntsActifs() {
-        Date maintenant = new Date();
+        Date dateRetour = new Date();
+        Calendar cal = Calendar.getInstance();
         return historiqueEmprunts.stream()
                 .filter(emprunt -> {
-                    Calendar cal = Calendar.getInstance();
-                    cal.setTime(emprunt.dateEmprunt);
-                    cal.add(Calendar.DATE, emprunt.getDureeEmprunt());
-                    Date dateRetour = cal.getTime();
-                    return dateRetour.after(maintenant) || dateRetour.equals(maintenant);
+                    dateRetour.setTime(emprunt.dateEmprunt.getTime() + emprunt.getDureeEmprunt() * JOURS_EN_MILLIS);
+                    return dateRetour.after(cal.getTime()) || dateRetour.equals(cal.getTime());
                 })
                 .collect(Collectors.toList());
     }
