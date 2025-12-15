@@ -3,9 +3,67 @@
  */
 package bibliemprunt;
 
+import bibliemprunt.données.BanqueClient;
+import bibliemprunt.données.BanqueEmprunts;
+import bibliemprunt.données.BanqueLivres;
+import bibliemprunt.models.Emprunt;
+
+import java.util.Scanner;
+
 public class Bibliothèque {
 
+    private static Borne borne;
+    private static boolean estActive;
+
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        initialisation();
+        exécution();
+        destruction();
+    }
+
+    private static void initialisation() {
+        System.out.println("Système de Borne d'Emprunt");
+        System.out.println("Initialisation de la bibliothèque...");
+
+        Paramètre.initialiser();
+        BanqueClient.initialiser();
+        BanqueLivres.initialiser();
+        BanqueEmprunts.initialiser();
+
+        borne = new Borne();
+
+        Runtime.getRuntime().addShutdownHook(new Thread("GestionnaireSGKILL") {
+            @Override
+            public void run() {
+                if (estActive) {
+                    for (Thread t : Thread.getAllStackTraces().keySet()) {
+                        t.interrupt();
+                    }
+
+                    borne.sigkillQuitter();
+                    borne.miseÀJour();
+                    destruction();
+                }
+            }
+        });
+
+        estActive = true;
+        System.out.println("Système initialisé avec succès!\n");
+    }
+
+    private static void exécution() {
+        while (borne.estActive) {
+            borne.miseÀJour();
+        }
+    }
+
+    private static void destruction() {
+        if (estActive) {
+            System.out.println("Fermeture du système...");
+
+            borne.destruction();
+            estActive = false;
+            System.out.println("\nAu revoir!");
+        }
     }
 }

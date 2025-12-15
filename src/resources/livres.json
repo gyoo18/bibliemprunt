@@ -1,0 +1,244 @@
+{
+  "livres": [
+    {
+      "rfid": "123456",
+      "titre": "La peste",
+      "auteur": "Albert Camus",
+      "edition": "Gallimard",
+      "dateParution": 1947,
+      "nombrePages": 336
+    },
+    {
+      "rfid": "789012",
+      "titre": "Les misérables",
+      "auteur": "Victor Hugo",
+      "edition": "Folio Junior",
+      "dateParution": 2011,
+      "nombrePages": 291
+    },
+    {
+      "rfid": "234567",
+      "titre": "L'Étranger",
+      "auteur": "Albert Camus",
+      "edition": "Gallimard",
+      "dateParution": 1942,
+      "nombrePages": 186
+    },
+    {
+      "rfid": "345678",
+      "titre": "Le Petit Prince",
+      "auteur": "Antoine de Saint-Exupéry",
+      "edition": "Gallimard",
+      "dateParution": 1943,
+      "nombrePages": 96
+    },
+    {
+      "rfid": "456789",
+      "titre": "Germinal",
+      "auteur": "Émile Zola",
+      "edition": "Le Livre de Poche",
+      "dateParution": 1885,
+      "nombrePages": 591
+    },
+    {
+      "rfid": "567890",
+      "titre": "Madame Bovary",
+      "auteur": "Gustave Flaubert",
+      "edition": "Folio",
+      "dateParution": 1857,
+      "nombrePages": 464
+    },
+    {
+      "rfid": "678901",
+      "titre": "Notre-Dame de Paris",
+      "auteur": "Victor Hugo",
+      "edition": "Le Livre de Poche",
+      "dateParution": 1831,
+      "nombrePages": 736
+    },
+    {
+      "rfid": "890123",
+      "titre": "Le Comte de Monte-Cristo",
+      "auteur": "Alexandre Dumas",
+      "edition": "Le Livre de Poche",
+      "dateParution": 1844,
+      "nombrePages": 1344
+    },
+    {
+      "rfid": "901234",
+      "titre": "Les Trois Mousquetaires",
+      "auteur": "Alexandre Dumas",
+      "edition": "Folio",
+      "dateParution": 1844,
+      "nombrePages": 896
+    },
+    {
+      "rfid": "012345",
+      "titre": "Candide",
+      "auteur": "Voltaire",
+      "edition": "Gallimard",
+      "dateParution": 1759,
+      "nombrePages": 160
+    },
+    {
+      "rfid": "112233",
+      "titre": "Le Rouge et le Noir",
+      "auteur": "Stendhal",
+      "edition": "Folio",
+      "dateParution": 1830,
+      "nombrePages": 672
+    },
+    {
+      "rfid": "223344",
+      "titre": "À la recherche du temps perdu",
+      "auteur": "Marcel Proust",
+      "edition": "Gallimard",
+      "dateParution": 1913,
+      "nombrePages": 3200
+    },
+    {
+      "rfid": "334455",
+      "titre": "Les Fleurs du mal",
+      "auteur": "Charles Baudelaire",
+      "edition": "Le Livre de Poche",
+      "dateParution": 1857,
+      "nombrePages": 320
+    },
+    {
+      "rfid": "445566",
+      "titre": "Voyage au bout de la nuit",
+      "auteur": "Louis-Ferdinand Céline",
+      "edition": "Gallimard",
+      "dateParution": 1932,
+      "nombrePages": 624
+    },
+    {
+      "rfid": "556677",
+      "titre": "Le Père Goriot",
+      "auteur": "Honoré de Balzac",
+      "edition": "Le Livre de Poche",
+      "dateParution": 1835,
+      "nombrePages": 368
+    },
+    {
+      "rfid": "667788",
+      "titre": "Bel-Ami",
+      "auteur": "Guy de Maupassant",
+      "edition": "Folio",
+      "dateParution": 1885,
+      "nombrePages": 416
+    },
+    {
+      "rfid": "778899",
+      "titre": "La Chartreuse de Parme",
+      "auteur": "Stendhal",
+      "edition": "Gallimard",
+      "dateParution": 1839,
+      "nombrePages": 528
+    },
+    {
+      "rfid": "889900",
+      "titre": "Thérèse Raquin",
+      "auteur": "Émile Zola",
+      "edition": "Le Livre de Poche",
+      "dateParution": 1867,
+      "nombrePages": 288
+    },
+    {
+      "rfid": "990011",
+      "titre": "Les Liaisons dangereuses",
+      "auteur": "Pierre Choderlos de Laclos",
+      "edition": "Folio",
+      "dateParution": 1782,
+      "nombrePages": 512
+    },
+    {
+      "rfid": "101112",
+      "titre": "Eugénie Grandet",
+      "auteur": "Honoré de Balzac",
+      "edition": "Le Livre de Poche",
+      "dateParution": 1833,
+      "nombrePages": 256
+    },
+    {
+      "rfid": "121314",
+      "titre": "La Condition humaine",
+      "auteur": "André Malraux",
+      "edition": "Gallimard",
+      "dateParution": 1933,
+      "nombrePages": 416
+    },
+    {
+      "rfid": "131415",
+      "titre": "Bonjour tristesse",
+      "auteur": "Françoise Sagan",
+      "edition": "Le Livre de Poche",
+      "dateParution": 1954,
+      "nombrePages": 128
+    },
+    {
+      "rfid": "141516",
+      "titre": "Le Grand Meaulnes",
+      "auteur": "Alain-Fournier",
+      "edition": "Folio",
+      "dateParution": 1913,
+      "nombrePages": 288
+    },
+    {
+      "rfid": "151617",
+      "titre": "Nana",
+      "auteur": "Émile Zola",
+      "edition": "Le Livre de Poche",
+      "dateParution": 1880,
+      "nombrePages": 528
+    },
+    {
+      "rfid": "161718",
+      "titre": "Zazie dans le métro",
+      "auteur": "Raymond Queneau",
+      "edition": "Gallimard",
+      "dateParution": 1959,
+      "nombrePages": 192
+    },
+    {
+      "rfid": "171819",
+      "titre": "Le Horla",
+      "auteur": "Guy de Maupassant",
+      "edition": "Folio",
+      "dateParution": 1887,
+      "nombrePages": 96
+    },
+    {
+      "rfid": "181920",
+      "titre": "Poil de Carotte",
+      "auteur": "Jules Renard",
+      "edition": "Le Livre de Poche",
+      "dateParution": 1894,
+      "nombrePages": 160
+    },
+    {
+      "rfid": "192021",
+      "titre": "Le Diable au corps",
+      "auteur": "Raymond Radiguet",
+      "edition": "Gallimard",
+      "dateParution": 1923,
+      "nombrePages": 144
+    },
+    {
+      "rfid": "202122",
+      "titre": "La Nausée",
+      "auteur": "Jean-Paul Sartre",
+      "edition": "Gallimard",
+      "dateParution": 1938,
+      "nombrePages": 256
+    },
+    {
+      "rfid": "212223",
+      "titre": "Rhinocéros",
+      "auteur": "Eugène Ionesco",
+      "edition": "Gallimard",
+      "dateParution": 1959,
+      "nombrePages": 176
+    }
+  ]
+}
