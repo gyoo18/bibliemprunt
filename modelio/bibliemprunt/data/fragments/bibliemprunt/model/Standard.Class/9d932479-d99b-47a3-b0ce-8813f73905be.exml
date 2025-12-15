@@ -107,9 +107,9 @@
             <ATT name="status">1970354901745664</ATT>
           </ATTRIBUTES>
           <DEPENDENCIES>
-            <COMP relation="Return">
+            <COMP relation="IO">
               <OBJECT>
-                <ID name="p1" mc="Standard.Parameter" uid="43c8c547-6735-4007-bb9b-4c70adf660d6"/>
+                <ID name="page" mc="Standard.Parameter" uid="8b6cf6a4-359b-4b69-92c0-333368ed15f3"/>
                 <ATTRIBUTES>
                   <ATT name="ParameterPassing">In</ATT>
                   <ATT name="MultiplicityMin"><![CDATA[1]]></ATT>
@@ -121,12 +121,12 @@
                   <ATT name="IsException">false</ATT>
                   <ATT name="IsStream">false</ATT>
                   <ATT name="Effect">ReadEffect</ATT>
-                  <ATT name="Name"><![CDATA[p1]]></ATT>
+                  <ATT name="Name"><![CDATA[page]]></ATT>
                   <ATT name="status">1970354901745664</ATT>
                 </ATTRIBUTES>
                 <DEPENDENCIES>
                   <LINK relation="Type">
-                    <ID name="Object" mc="Standard.Class" uid="ef0fae32-22fd-45e0-80de-e7c0c5b39e69"/>
+                    <ID name="Page" mc="Standard.Class" uid="b743acd6-ed29-4a75-bac4-fbc6490c537d"/>
                   </LINK>
                 </DEPENDENCIES>
               </OBJECT>
@@ -169,10 +169,8 @@
                   </LINK>
                 </DEPENDENCIES>
               </OBJECT>
-            </COMP>
-            <COMP relation="Return">
               <OBJECT>
-                <ID name="p1" mc="Standard.Parameter" uid="442c7a00-c5ac-404e-9e2e-2f213d8a8597"/>
+                <ID name="page" mc="Standard.Parameter" uid="febb2551-7910-42c8-9348-c52a453ecb0d"/>
                 <ATTRIBUTES>
                   <ATT name="ParameterPassing">In</ATT>
                   <ATT name="MultiplicityMin"><![CDATA[1]]></ATT>
@@ -184,12 +182,12 @@
                   <ATT name="IsException">false</ATT>
                   <ATT name="IsStream">false</ATT>
                   <ATT name="Effect">ReadEffect</ATT>
-                  <ATT name="Name"><![CDATA[p1]]></ATT>
+                  <ATT name="Name"><![CDATA[page]]></ATT>
                   <ATT name="status">1970354901745664</ATT>
                 </ATTRIBUTES>
                 <DEPENDENCIES>
                   <LINK relation="Type">
-                    <ID name="Object" mc="Standard.Class" uid="ef0fae32-22fd-45e0-80de-e7c0c5b39e69"/>
+                    <ID name="Page" mc="Standard.Class" uid="b743acd6-ed29-4a75-bac4-fbc6490c537d"/>
                   </LINK>
                 </DEPENDENCIES>
               </OBJECT>
@@ -209,9 +207,9 @@
             <ATT name="status">1970354901745664</ATT>
           </ATTRIBUTES>
           <DEPENDENCIES>
-            <COMP relation="Return">
+            <COMP relation="IO">
               <OBJECT>
-                <ID name="p1" mc="Standard.Parameter" uid="b3b02ae1-1d84-4fa0-9e84-06c1b485801a"/>
+                <ID name="page" mc="Standard.Parameter" uid="88c48f1e-053e-416f-968f-619dfc6c3a11"/>
                 <ATTRIBUTES>
                   <ATT name="ParameterPassing">In</ATT>
                   <ATT name="MultiplicityMin"><![CDATA[1]]></ATT>
@@ -223,12 +221,12 @@
                   <ATT name="IsException">false</ATT>
                   <ATT name="IsStream">false</ATT>
                   <ATT name="Effect">ReadEffect</ATT>
-                  <ATT name="Name"><![CDATA[p1]]></ATT>
+                  <ATT name="Name"><![CDATA[page]]></ATT>
                   <ATT name="status">1970354901745664</ATT>
                 </ATTRIBUTES>
                 <DEPENDENCIES>
                   <LINK relation="Type">
-                    <ID name="Object" mc="Standard.Class" uid="ef0fae32-22fd-45e0-80de-e7c0c5b39e69"/>
+                    <ID name="Page" mc="Standard.Class" uid="b743acd6-ed29-4a75-bac4-fbc6490c537d"/>
                   </LINK>
                 </DEPENDENCIES>
               </OBJECT>
@@ -241,16 +239,16 @@
             <ATT name="Concurrency">false</ATT>
             <ATT name="Final">false</ATT>
             <ATT name="Passing">MethodOut</ATT>
-            <ATT name="Visibility">Public</ATT>
+            <ATT name="Visibility">Private</ATT>
             <ATT name="IsClass">false</ATT>
             <ATT name="IsAbstract">false</ATT>
             <ATT name="Name"><![CDATA[créerAnnulationEmpruntPopup]]></ATT>
             <ATT name="status">1970354901745664</ATT>
           </ATTRIBUTES>
           <DEPENDENCIES>
-            <COMP relation="Return">
+            <COMP relation="IO">
               <OBJECT>
-                <ID name="p1" mc="Standard.Parameter" uid="c9f762a4-c80e-48d6-ad57-62d06730125e"/>
+                <ID name="page" mc="Standard.Parameter" uid="43decf32-f0fa-4b0b-aec5-7b9989f335af"/>
                 <ATTRIBUTES>
                   <ATT name="ParameterPassing">In</ATT>
                   <ATT name="MultiplicityMin"><![CDATA[1]]></ATT>
@@ -262,12 +260,12 @@
                   <ATT name="IsException">false</ATT>
                   <ATT name="IsStream">false</ATT>
                   <ATT name="Effect">ReadEffect</ATT>
-                  <ATT name="Name"><![CDATA[p1]]></ATT>
+                  <ATT name="Name"><![CDATA[page]]></ATT>
                   <ATT name="status">1970354901745664</ATT>
                 </ATTRIBUTES>
                 <DEPENDENCIES>
                   <LINK relation="Type">
-                    <ID name="Object" mc="Standard.Class" uid="ef0fae32-22fd-45e0-80de-e7c0c5b39e69"/>
+                    <ID name="Page" mc="Standard.Class" uid="b743acd6-ed29-4a75-bac4-fbc6490c537d"/>
                   </LINK>
                 </DEPENDENCIES>
               </OBJECT>

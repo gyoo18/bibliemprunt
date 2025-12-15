@@ -20,53 +20,6 @@
           <DEPENDENCIES>
             <COMP relation="Sub">
               <OBJECT>
-                <ID name="Initial State" mc="Standard.InitialPseudoState" uid="f9e1119e-d92e-4dcc-81bc-2c206871da5d"/>
-                <ATTRIBUTES>
-                  <ATT name="Name"><![CDATA[Initial State]]></ATT>
-                  <ATT name="status">1970354901745664</ATT>
-                </ATTRIBUTES>
-                <DEPENDENCIES>
-                  <COMP relation="OutGoing">
-                    <OBJECT>
-                      <ID name="Transition" mc="Standard.Transition" uid="e907bcf1-2988-4838-88c6-dcc1b0aa3cec"/>
-                      <ATTRIBUTES>
-                        <ATT name="Effect"></ATT>
-                        <ATT name="ReceivedEvents"></ATT>
-                        <ATT name="SentEvents"></ATT>
-                        <ATT name="Guard"></ATT>
-                        <ATT name="PostCondition"></ATT>
-                        <ATT name="Name"><![CDATA[Transition]]></ATT>
-                        <ATT name="status">1970354901745664</ATT>
-                      </ATTRIBUTES>
-                      <DEPENDENCIES>
-                        <LINK relation="Target">
-                          <REFOBJ>
-                            <ID name="Attente Authentification" mc="Standard.State" uid="4d5c6a73-9639-4b46-836a-748d6207edf9"/>
-                          </REFOBJ>
-                        </LINK>
-                      </DEPENDENCIES>
-                    </OBJECT>
-                  </COMP>
-                  <COMP relation="Descriptor">
-                    <OBJECT>
-                      <ID name="Note" mc="Infrastructure.Note" uid="429c60f4-7d86-4800-9d26-43d10035cf19"/>
-                      <ATTRIBUTES>
-                        <ATT name="Content"><![CDATA[État de la borne
-]]></ATT>
-                        <ATT name="MimeType"><![CDATA[text/plain]]></ATT>
-                        <ATT name="Name"><![CDATA[Note]]></ATT>
-                        <ATT name="status">1970354901745664</ATT>
-                      </ATTRIBUTES>
-                      <DEPENDENCIES>
-                        <LINK relation="Model">
-                          <FOREIGNID name="description" mc="Infrastructure.NoteType" uid="00000000-0000-3e81-0000-000000000000"/>
-                        </LINK>
-                      </DEPENDENCIES>
-                    </OBJECT>
-                  </COMP>
-                </DEPENDENCIES>
-              </OBJECT>
-              <OBJECT>
                 <ID name="Initial State1" mc="Standard.InitialPseudoState" uid="7c2d6e5e-0f11-48a5-a0d8-a9e11494b42f"/>
                 <ATTRIBUTES>
                   <ATT name="Name"><![CDATA[Initial State1]]></ATT>
@@ -107,36 +60,6 @@
                       <DEPENDENCIES>
                         <LINK relation="Model">
                           <FOREIGNID name="description" mc="Infrastructure.NoteType" uid="00000000-0000-3e81-0000-000000000000"/>
-                        </LINK>
-                      </DEPENDENCIES>
-                    </OBJECT>
-                  </COMP>
-                </DEPENDENCIES>
-              </OBJECT>
-              <OBJECT>
-                <ID name="Attente Authentification" mc="Standard.State" uid="4d5c6a73-9639-4b46-836a-748d6207edf9"/>
-                <ATTRIBUTES>
-                  <ATT name="Name"><![CDATA[Attente Authentification]]></ATT>
-                  <ATT name="status">1970354901745664</ATT>
-                </ATTRIBUTES>
-                <DEPENDENCIES>
-                  <COMP relation="OutGoing">
-                    <OBJECT>
-                      <ID name="Transition" mc="Standard.Transition" uid="8ed72bee-a518-4ebd-83a1-60b01e04a5e9"/>
-                      <ATTRIBUTES>
-                        <ATT name="Effect"></ATT>
-                        <ATT name="ReceivedEvents"></ATT>
-                        <ATT name="SentEvents"></ATT>
-                        <ATT name="Guard"></ATT>
-                        <ATT name="PostCondition"></ATT>
-                        <ATT name="Name"><![CDATA[Transition]]></ATT>
-                        <ATT name="status">1970354901745664</ATT>
-                      </ATTRIBUTES>
-                      <DEPENDENCIES>
-                        <LINK relation="Target">
-                          <REFOBJ>
-                            <ID name="Emprunt" mc="Standard.State" uid="4410495f-da53-4d70-a74a-25deff5d8336"/>
-                          </REFOBJ>
                         </LINK>
                       </DEPENDENCIES>
                     </OBJECT>
@@ -234,25 +157,6 @@
                         <LINK relation="Target">
                           <REFOBJ>
                             <ID name="Emprunts" mc="Standard.State" uid="71e6b345-399d-4cb2-9de9-ac4e435305c3"/>
-                          </REFOBJ>
-                        </LINK>
-                      </DEPENDENCIES>
-                    </OBJECT>
-                    <OBJECT>
-                      <ID name="Transition3" mc="Standard.Transition" uid="c8f6b20f-3c6a-4ca2-9aca-d2c41a3e6c02"/>
-                      <ATTRIBUTES>
-                        <ATT name="Effect"></ATT>
-                        <ATT name="ReceivedEvents"></ATT>
-                        <ATT name="SentEvents"></ATT>
-                        <ATT name="Guard"></ATT>
-                        <ATT name="PostCondition"><![CDATA[Compte valide]]></ATT>
-                        <ATT name="Name"><![CDATA[Transition3]]></ATT>
-                        <ATT name="status">1970354901745664</ATT>
-                      </ATTRIBUTES>
-                      <DEPENDENCIES>
-                        <LINK relation="Target">
-                          <REFOBJ>
-                            <ID name="Emprunt" mc="Standard.State" uid="4410495f-da53-4d70-a74a-25deff5d8336"/>
                           </REFOBJ>
                         </LINK>
                       </DEPENDENCIES>
@@ -423,32 +327,40 @@
                         </LINK>
                       </DEPENDENCIES>
                     </OBJECT>
-                  </COMP>
-                </DEPENDENCIES>
-              </OBJECT>
-              <OBJECT>
-                <ID name="Emprunt" mc="Standard.State" uid="4410495f-da53-4d70-a74a-25deff5d8336"/>
-                <ATTRIBUTES>
-                  <ATT name="Name"><![CDATA[Emprunt]]></ATT>
-                  <ATT name="status">1970354901745664</ATT>
-                </ATTRIBUTES>
-                <DEPENDENCIES>
-                  <COMP relation="OutGoing">
                     <OBJECT>
-                      <ID name="Transition" mc="Standard.Transition" uid="ba4e15cc-8f20-4acd-9292-ed93f14c71aa"/>
+                      <ID name="Transition5" mc="Standard.Transition" uid="be537a55-7bba-4956-a363-059f45aa5908"/>
                       <ATTRIBUTES>
                         <ATT name="Effect"></ATT>
                         <ATT name="ReceivedEvents"></ATT>
                         <ATT name="SentEvents"></ATT>
                         <ATT name="Guard"></ATT>
-                        <ATT name="PostCondition"></ATT>
-                        <ATT name="Name"><![CDATA[Transition]]></ATT>
+                        <ATT name="PostCondition"><![CDATA[Voir livres disponibles]]></ATT>
+                        <ATT name="Name"><![CDATA[Transition5]]></ATT>
                         <ATT name="status">1970354901745664</ATT>
                       </ATTRIBUTES>
                       <DEPENDENCIES>
                         <LINK relation="Target">
                           <REFOBJ>
-                            <ID name="Attente Authentification" mc="Standard.State" uid="4d5c6a73-9639-4b46-836a-748d6207edf9"/>
+                            <ID name="Voir livres disponibles" mc="Standard.State" uid="8818fab1-7f16-4fdc-a612-83750973af9f"/>
+                          </REFOBJ>
+                        </LINK>
+                      </DEPENDENCIES>
+                    </OBJECT>
+                    <OBJECT>
+                      <ID name="Transition6" mc="Standard.Transition" uid="309f9028-93db-4e2c-8076-5ceb1e1957a2"/>
+                      <ATTRIBUTES>
+                        <ATT name="Effect"></ATT>
+                        <ATT name="ReceivedEvents"></ATT>
+                        <ATT name="SentEvents"></ATT>
+                        <ATT name="Guard"><![CDATA[Voir emprunts actifs]]></ATT>
+                        <ATT name="PostCondition"></ATT>
+                        <ATT name="Name"><![CDATA[Transition6]]></ATT>
+                        <ATT name="status">1970354901745664</ATT>
+                      </ATTRIBUTES>
+                      <DEPENDENCIES>
+                        <LINK relation="Target">
+                          <REFOBJ>
+                            <ID name="Voir Emprunts actifs" mc="Standard.State" uid="86e3a893-108a-4307-8afb-34f69104de55"/>
                           </REFOBJ>
                         </LINK>
                       </DEPENDENCIES>
@@ -649,25 +561,6 @@
                         </LINK>
                       </DEPENDENCIES>
                     </OBJECT>
-                    <OBJECT>
-                      <ID name="Transition2" mc="Standard.Transition" uid="63175e7c-1fc1-4fd5-90b3-f540f272ca92"/>
-                      <ATTRIBUTES>
-                        <ATT name="Effect"></ATT>
-                        <ATT name="ReceivedEvents"></ATT>
-                        <ATT name="SentEvents"></ATT>
-                        <ATT name="Guard"></ATT>
-                        <ATT name="PostCondition"></ATT>
-                        <ATT name="Name"><![CDATA[Transition2]]></ATT>
-                        <ATT name="status">1970354901745664</ATT>
-                      </ATTRIBUTES>
-                      <DEPENDENCIES>
-                        <LINK relation="Target">
-                          <REFOBJ>
-                            <ID name="Attente Authentification" mc="Standard.State" uid="4d5c6a73-9639-4b46-836a-748d6207edf9"/>
-                          </REFOBJ>
-                        </LINK>
-                      </DEPENDENCIES>
-                    </OBJECT>
                   </COMP>
                 </DEPENDENCIES>
               </OBJECT>
@@ -698,25 +591,6 @@
                         </LINK>
                       </DEPENDENCIES>
                     </OBJECT>
-                    <OBJECT>
-                      <ID name="Transition1" mc="Standard.Transition" uid="6dbfab17-c94b-4501-bd06-08e0d25e6bf8"/>
-                      <ATTRIBUTES>
-                        <ATT name="Effect"></ATT>
-                        <ATT name="ReceivedEvents"></ATT>
-                        <ATT name="SentEvents"></ATT>
-                        <ATT name="Guard"><![CDATA[Déconnection]]></ATT>
-                        <ATT name="PostCondition"></ATT>
-                        <ATT name="Name"><![CDATA[Transition1]]></ATT>
-                        <ATT name="status">1970354901745664</ATT>
-                      </ATTRIBUTES>
-                      <DEPENDENCIES>
-                        <LINK relation="Target">
-                          <REFOBJ>
-                            <ID name="Attente Authentification" mc="Standard.State" uid="4d5c6a73-9639-4b46-836a-748d6207edf9"/>
-                          </REFOBJ>
-                        </LINK>
-                      </DEPENDENCIES>
-                    </OBJECT>
                   </COMP>
                 </DEPENDENCIES>
               </OBJECT>
@@ -736,6 +610,66 @@
                         <ATT name="SentEvents"></ATT>
                         <ATT name="Guard"><![CDATA[confirmation]]></ATT>
                         <ATT name="PostCondition"></ATT>
+                        <ATT name="Name"><![CDATA[Transition]]></ATT>
+                        <ATT name="status">1970354901745664</ATT>
+                      </ATTRIBUTES>
+                      <DEPENDENCIES>
+                        <LINK relation="Target">
+                          <REFOBJ>
+                            <ID name="Emprunts" mc="Standard.State" uid="71e6b345-399d-4cb2-9de9-ac4e435305c3"/>
+                          </REFOBJ>
+                        </LINK>
+                      </DEPENDENCIES>
+                    </OBJECT>
+                  </COMP>
+                </DEPENDENCIES>
+              </OBJECT>
+              <OBJECT>
+                <ID name="Voir livres disponibles" mc="Standard.State" uid="8818fab1-7f16-4fdc-a612-83750973af9f"/>
+                <ATTRIBUTES>
+                  <ATT name="Name"><![CDATA[Voir livres disponibles]]></ATT>
+                  <ATT name="status">1970354901745664</ATT>
+                </ATTRIBUTES>
+                <DEPENDENCIES>
+                  <COMP relation="OutGoing">
+                    <OBJECT>
+                      <ID name="Transition" mc="Standard.Transition" uid="b7981e40-d44e-4971-92e7-586891cd7c6c"/>
+                      <ATTRIBUTES>
+                        <ATT name="Effect"></ATT>
+                        <ATT name="ReceivedEvents"></ATT>
+                        <ATT name="SentEvents"></ATT>
+                        <ATT name="Guard"><![CDATA[Confirmer]]></ATT>
+                        <ATT name="PostCondition"></ATT>
+                        <ATT name="Name"><![CDATA[Transition]]></ATT>
+                        <ATT name="status">1970354901745664</ATT>
+                      </ATTRIBUTES>
+                      <DEPENDENCIES>
+                        <LINK relation="Target">
+                          <REFOBJ>
+                            <ID name="Emprunts" mc="Standard.State" uid="71e6b345-399d-4cb2-9de9-ac4e435305c3"/>
+                          </REFOBJ>
+                        </LINK>
+                      </DEPENDENCIES>
+                    </OBJECT>
+                  </COMP>
+                </DEPENDENCIES>
+              </OBJECT>
+              <OBJECT>
+                <ID name="Voir Emprunts actifs" mc="Standard.State" uid="86e3a893-108a-4307-8afb-34f69104de55"/>
+                <ATTRIBUTES>
+                  <ATT name="Name"><![CDATA[Voir Emprunts actifs]]></ATT>
+                  <ATT name="status">1970354901745664</ATT>
+                </ATTRIBUTES>
+                <DEPENDENCIES>
+                  <COMP relation="OutGoing">
+                    <OBJECT>
+                      <ID name="Transition" mc="Standard.Transition" uid="a5790cea-9fb6-4713-bb60-be2836ba8e59"/>
+                      <ATTRIBUTES>
+                        <ATT name="Effect"></ATT>
+                        <ATT name="ReceivedEvents"></ATT>
+                        <ATT name="SentEvents"></ATT>
+                        <ATT name="Guard"></ATT>
+                        <ATT name="PostCondition"><![CDATA[Confirmer]]></ATT>
                         <ATT name="Name"><![CDATA[Transition]]></ATT>
                         <ATT name="status">1970354901745664</ATT>
                       </ATTRIBUTES>

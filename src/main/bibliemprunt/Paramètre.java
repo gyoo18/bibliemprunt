@@ -7,7 +7,9 @@ public class Paramètre {
     public static int authentificationEssaisMax;
 
     public static void initialiser() {
-        // TODO implémenter initialiser
-        throw new UnsupportedOperationException();
+        nbMaxEmprunts = 5;
+        duréeEmpruntDéfaut = 14; // 14 jours
+        duréeCompteBlocage = 300; // 5 minutes en secondes
+        authentificationEssaisMax = 3;
     }
 }
