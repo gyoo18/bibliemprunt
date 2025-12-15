@@ -184,7 +184,7 @@
         <OBJECT>
           <ID name="" mc="Standard.AssociationEnd" uid="b566666a-656f-4be8-a4a5-7b9f72880c4d"/>
           <ATTRIBUTES>
-            <ATT name="Aggregation">KindIsComposition</ATT>
+            <ATT name="Aggregation">KindIsAssociation</ATT>
             <ATT name="IsChangeable">true</ATT>
             <ATT name="Changeable">AccesNone</ATT>
             <ATT name="IsDerived">false</ATT>

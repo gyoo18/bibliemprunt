@@ -18,7 +18,6 @@
         <COMPID name="Communication Interaction" mc="Standard.CommunicationInteraction" uid="053ed421-362c-4a04-bb1e-34dbae0ee7c5"/>
         <COMPID name="State Machine" mc="Standard.StateMachine" uid="1f6dd728-fa8d-4734-b732-5567f8367188"/>
         <COMPID name="Interaction1" mc="Standard.Interaction" uid="1ab0503a-7619-40ec-b36b-5a1c255aec01"/>
-        <COMPID name="Communication Interaction" mc="Standard.CommunicationInteraction" uid="aa91b455-f678-468f-acf5-5a82eb7f4f5f"/>
       </COMP>
       <COMP relation="OwnedElement">
         <COMPID name="Bibliothèque" mc="Standard.Class" uid="734bcfc5-4ac8-4a2f-a323-035e0bcf918c"/>
@@ -141,34 +140,18 @@
                 </ATTRIBUTES>
                 <DEPENDENCIES></DEPENDENCIES>
               </OBJECT>
-            </COMP>
-          </DEPENDENCIES>
-        </OBJECT>
-        <OBJECT>
-          <ID name="ÉtatBorne" mc="Standard.Enumeration" uid="77121430-559c-4533-b7de-3f2cd7692e94"/>
-          <ATTRIBUTES>
-            <ATT name="IsElementary">true</ATT>
-            <ATT name="IsAbstract">false</ATT>
-            <ATT name="IsLeaf">false</ATT>
-            <ATT name="IsRoot">false</ATT>
-            <ATT name="Visibility">Public</ATT>
-            <ATT name="Name"><![CDATA[ÉtatBorne]]></ATT>
-            <ATT name="status">1970354901745664</ATT>
-          </ATTRIBUTES>
-          <DEPENDENCIES>
-            <COMP relation="Value">
               <OBJECT>
-                <ID name="AUTHENTIFICATION" mc="Standard.EnumerationLiteral" uid="a4716e39-3b16-4477-8cc6-e36df1d63846"/>
+                <ID name="LIVRES_DISPONIBLES" mc="Standard.EnumerationLiteral" uid="5bd42a92-7c2d-4d27-952f-252b87ab9752"/>
                 <ATTRIBUTES>
-                  <ATT name="Name"><![CDATA[AUTHENTIFICATION]]></ATT>
+                  <ATT name="Name"><![CDATA[LIVRES_DISPONIBLES]]></ATT>
                   <ATT name="status">1970354901745664</ATT>
                 </ATTRIBUTES>
                 <DEPENDENCIES></DEPENDENCIES>
               </OBJECT>
               <OBJECT>
-                <ID name="EMPRUNTS" mc="Standard.EnumerationLiteral" uid="c18ff841-55eb-458f-8084-65d162f5b708"/>
+                <ID name="EMPRUNTS_ACTIFS" mc="Standard.EnumerationLiteral" uid="4e7c4a67-5509-4e42-aeee-7984e73c3495"/>
                 <ATTRIBUTES>
-                  <ATT name="Name"><![CDATA[EMPRUNTS]]></ATT>
+                  <ATT name="Name"><![CDATA[EMPRUNTS_ACTIFS]]></ATT>
                   <ATT name="status">1970354901745664</ATT>
                 </ATTRIBUTES>
                 <DEPENDENCIES></DEPENDENCIES>
@@ -188,10 +171,10 @@
         <COMPID name="Livres" mc="Standard.Class" uid="be422a19-0cc6-4a77-a898-c926ee5361d4"/>
         <COMPID name="Emprunts" mc="Standard.Class" uid="b1268c84-874f-4f71-bc24-63ed6283baf5"/>
         <COMPID name="Comptes Clients" mc="Standard.Class" uid="ce8b7d49-35d0-42d8-b27c-886ea3a78b02"/>
+        <COMPID name="Java" mc="Standard.Package" uid="3a4907a7-da49-48fe-a147-6be9d335f48b"/>
       </COMP>
       <COMP relation="Product">
         <COMPID name="Modèle du domaine" mc="Standard.ClassDiagram" uid="b3469607-368f-4fbb-aa57-91b6a1c430bf"/>
-        <COMPID name="Diagramme de Classes Swing" mc="Standard.ClassDiagram" uid="5a475e1a-f188-447e-b077-3544549fcec2"/>
         <COMPID name="Diagramme de Classes HTML" mc="Standard.ClassDiagram" uid="93194287-86fa-408e-a405-caebf66ea321"/>
         <COMPID name="Définition base SQL" mc="Standard.ClassDiagram" uid="755c4b8b-fabf-4e86-a42d-55d4295c96cc"/>
       </COMP>

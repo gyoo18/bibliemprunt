@@ -15,6 +15,50 @@
       <ATT name="status">1970354901745664</ATT>
     </ATTRIBUTES>
     <DEPENDENCIES>
+      <COMP relation="OwnedOperation">
+        <OBJECT>
+          <ID name="initialiser" mc="Standard.Operation" uid="8ae31a71-39ed-40c1-b40b-07274e854df9"/>
+          <ATTRIBUTES>
+            <ATT name="Concurrency">false</ATT>
+            <ATT name="Final">false</ATT>
+            <ATT name="Passing">MethodOut</ATT>
+            <ATT name="Visibility">Public</ATT>
+            <ATT name="IsClass">false</ATT>
+            <ATT name="IsAbstract">false</ATT>
+            <ATT name="Name"><![CDATA[initialiser]]></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES></DEPENDENCIES>
+        </OBJECT>
+        <OBJECT>
+          <ID name="exécution" mc="Standard.Operation" uid="1e2103db-792d-487c-89d3-5c3408b9b8c0"/>
+          <ATTRIBUTES>
+            <ATT name="Concurrency">false</ATT>
+            <ATT name="Final">false</ATT>
+            <ATT name="Passing">MethodOut</ATT>
+            <ATT name="Visibility">Public</ATT>
+            <ATT name="IsClass">false</ATT>
+            <ATT name="IsAbstract">false</ATT>
+            <ATT name="Name"><![CDATA[exécution]]></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES></DEPENDENCIES>
+        </OBJECT>
+        <OBJECT>
+          <ID name="destruction" mc="Standard.Operation" uid="f72973d9-d7ca-4b1c-902f-8c28bca17a55"/>
+          <ATTRIBUTES>
+            <ATT name="Concurrency">false</ATT>
+            <ATT name="Final">false</ATT>
+            <ATT name="Passing">MethodOut</ATT>
+            <ATT name="Visibility">Public</ATT>
+            <ATT name="IsClass">false</ATT>
+            <ATT name="IsAbstract">false</ATT>
+            <ATT name="Name"><![CDATA[destruction]]></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES></DEPENDENCIES>
+        </OBJECT>
+      </COMP>
       <COMP relation="OwnedEnd">
         <OBJECT>
           <ID name="" mc="Standard.AssociationEnd" uid="2514392b-c9de-4879-a0eb-54df53cc571f"/>
@@ -35,7 +79,7 @@
           </ATTRIBUTES>
           <DEPENDENCIES>
             <LINK relation="Target">
-              <ID name="Banque de livres" mc="Standard.Class" uid="fc808c4d-7936-484b-ae3b-44c72960a04a"/>
+              <ID name="BanqueLivres" mc="Standard.Class" uid="fc808c4d-7936-484b-ae3b-44c72960a04a"/>
             </LINK>
             <COMP relation="Opposite">
               <OBJECT>
@@ -112,7 +156,7 @@
           </ATTRIBUTES>
           <DEPENDENCIES>
             <LINK relation="Target">
-              <ID name="Borne d'emprunt" mc="Standard.Class" uid="e323486b-6fae-4710-be7a-54c8328b909a"/>
+              <ID name="BorneEmprunt" mc="Standard.Class" uid="e323486b-6fae-4710-be7a-54c8328b909a"/>
             </LINK>
             <COMP relation="Opposite">
               <OBJECT>
@@ -173,7 +217,7 @@
           </ATTRIBUTES>
           <DEPENDENCIES>
             <LINK relation="Target">
-              <ID name="Banque d'emprunts" mc="Standard.Class" uid="f378a06e-b3bb-43a0-a8a0-a3ff48649df9"/>
+              <ID name="BanqueEmprunts" mc="Standard.Class" uid="f378a06e-b3bb-43a0-a8a0-a3ff48649df9"/>
             </LINK>
             <COMP relation="Opposite">
               <OBJECT>
@@ -234,7 +278,7 @@
           </ATTRIBUTES>
           <DEPENDENCIES>
             <LINK relation="Target">
-              <ID name="Banque Clients" mc="Standard.Class" uid="512db497-d168-4adb-91d0-bc6bcbc4054d"/>
+              <ID name="BanqueClients" mc="Standard.Class" uid="512db497-d168-4adb-91d0-bc6bcbc4054d"/>
             </LINK>
             <COMP relation="Opposite">
               <OBJECT>
