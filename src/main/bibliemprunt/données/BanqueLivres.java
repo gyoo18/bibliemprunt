@@ -1,64 +1,62 @@
 package bibliemprunt.données;
 
+import bibliemprunt.models.CompteClient;
 import bibliemprunt.models.Livre;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonArray;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class BanqueLivres {
-    private static ArrayList<Livre> livres = new ArrayList<>();
 
     public static void initialiser() {
-        try (var stream = BanqueLivres.class.getClassLoader().getResourceAsStream("livres.json")) {
-            if (stream == null) {
-                throw new RuntimeException("Fichier livres.json non trouvé dans les ressources");
-            }
-            Gson gson = new Gson();
-            JsonObject jsonObject = gson.fromJson(new java.io.InputStreamReader(stream), JsonObject.class);
-            JsonArray livresArray = jsonObject.getAsJsonArray("livres");
-
-            for (int i = 0; i < livresArray.size(); i++) {
-                JsonObject livreJson = livresArray.get(i).getAsJsonObject();
-                int rfid = Integer.parseInt(livreJson.get("rfid").getAsString());
-                String titre = livreJson.get("titre").getAsString();
-                String auteur = livreJson.get("auteur").getAsString();
-                String edition = livreJson.get("edition").getAsString();
-                int anneeParution = livreJson.get("dateParution").getAsInt();
-                int nbPages = livreJson.get("nombrePages").getAsInt();
-
-                Livre livre = new Livre(rfid, titre, auteur, edition, anneeParution, nbPages);
-                livres.add(livre);
-            }
-        } catch (Exception e) {
-            System.err.println("Erreur lors du chargement des livres: " + e.getMessage());
-            e.printStackTrace();
-        }
     }
 
     public static Livre avoirLivre(int RFID) {
-        for (Livre livre : livres) {
-            if (livre.RFID == RFID) {
-                return livre;
+        ResultSet rs = SQLInterface.avoirLivre(RFID);
+        try {
+            if (!rs.next()) {
+                return null;
             }
+
+            Livre livre = new Livre(rs.getInt("RFID"), rs.getString("titre"), rs.getString("auteur"),
+                    rs.getString("edition"), rs.getInt("annee_parution"), rs.getInt("nb_pages"));
+            return livre;
+        } catch (SQLException e) {
+            System.err.println(
+                    "[BanqueLivre.avoirLivre]: Impossible de convertir le résultat en Livre : \n\t" + e.getMessage());
+            return null;
         }
-        return null;
     }
 
     public static void enregistrerLivre(Livre livre) {
-        if (!livres.contains(livre)) {
-            livres.add(livre);
-        }
+        SQLInterface.enregistrerLivre(livre);
     }
 
     public static void retirerLivre(int RFID) {
-        livres.removeIf(livre -> livre.RFID == RFID);
+        SQLInterface.retirerLivre(RFID);
     }
 
     public static Livre[] avoirListeLivres() {
-        Livre[] l = new Livre[livres.size()];
-        livres.toArray(l);
-        return l;
+        ResultSet rs = SQLInterface.avoirListeLivres();
+        Livre[] livres = new Livre[SQLInterface.avoirNbLivres()];
+        int i = 0;
+        try {
+            while (rs.next()) {
+                livres[i] = new Livre(rs.getInt("RFID"), rs.getString("titre"), rs.getString("auteur"),
+                        rs.getString("edition"), rs.getInt("annee_parution"), rs.getInt("nb_pages"));
+                i++;
+            }
+        } catch (SQLException e) {
+            System.err.println(
+                    "[BanqueLivre.avoirListeLivre]: Impossible de convertir le résultat en Livres : \n\t"
+                            + e.getMessage());
+            return null;
+        }
+
+        return livres;
     }
 }

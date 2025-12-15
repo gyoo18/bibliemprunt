@@ -1,37 +1,20 @@
 package bibliemprunt.données;
 
 import bibliemprunt.models.CompteClient;
+import bibliemprunt.models.Emprunt;
+
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonArray;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class BanqueClient {
-    private static ArrayList<CompteClient> clients = new ArrayList<>();
 
     public static void initialiser() {
-        try (var stream = BanqueClient.class.getClassLoader().getResourceAsStream("clients.json")) {
-            if (stream == null) {
-                throw new RuntimeException("Fichier clients.json non trouvé dans les ressources");
-            }
-            Gson gson = new Gson();
-            JsonObject jsonObject = gson.fromJson(new java.io.InputStreamReader(stream), JsonObject.class);
-            JsonArray clientsArray = jsonObject.getAsJsonArray("clients");
-
-            for (int i = 0; i < clientsArray.size(); i++) {
-                JsonObject clientJson = clientsArray.get(i).getAsJsonObject();
-                String numeroCompte = clientJson.get("numeroCompte").getAsString();
-                int nip = clientJson.get("nip").getAsInt();
-                String nom = clientJson.get("prenom").getAsString() + " " + clientJson.get("nom").getAsString();
-
-                CompteClient client = new CompteClient(numeroCompte, nip, nom);
-                clients.add(client);
-            }
-        } catch (Exception e) {
-            System.err.println("Erreur lors du chargement des clients: " + e.getMessage());
-            e.printStackTrace();
-        }
     }
 
     /**
@@ -44,35 +27,71 @@ public class BanqueClient {
      * @return CompteClient ou null
      */
     public static CompteClient authentifierClient(String numéroCompte, int NIP) {
-        for (CompteClient client : clients) {
-            if (client.numeroCompte.equals(numéroCompte)) {
-                if (client.authentifier(NIP)) {
-                    return client;
-                } else {
-                    return null;
-                }
+        ResultSet rs = SQLInterface.avoirClient(numéroCompte);
+        CompteClient client;
+        try {
+            if (!rs.next()) {
+                return null;
             }
+            client = new CompteClient(rs.getString("nom_compte"), rs.getInt("NIP"), rs.getString("nom_client"),
+                    rs.getBoolean("est_bloque"), rs.getLong("temps_bloque") * 1000,
+                    rs.getByte("nb_tentatives_authentifications"));
+        } catch (SQLException e) {
+            System.out.println(
+                    "[BanqueClient.authentifierClient] Impossible de convertir le résultat en CompteClient:\n\t"
+                            + e.getMessage());
+            return null;
         }
-        return null;
+
+        boolean estAuthentifié = client.authentifier(NIP);
+        mettreÀJourClient(client);
+        if (estAuthentifié) {
+            return client;
+        } else {
+            return null;
+        }
+    }
+
+    public static CompteClient avoirClient(String numéroCompte) {
+        ResultSet rs = SQLInterface.avoirClient(numéroCompte);
+        CompteClient client;
+        try {
+            if (!rs.next()) {
+                return null;
+            }
+            client = new CompteClient(rs.getString("nom_compte"), rs.getInt("NIP"), rs.getString("nom_client"),
+                    rs.getBoolean("est_bloque"), rs.getLong("temps_bloque") * 1000,
+                    rs.getByte("nb_tentatives_authentifications"));
+        } catch (SQLException e) {
+            System.out.println(
+                    "[BanqueClient.authentifierClient] Impossible de convertir le résultat en CompteClient:\n\t"
+                            + e.getMessage());
+            return null;
+        }
+
+        return client;
     }
 
     public static void enregistrerClient(CompteClient client) {
-        if (!clients.contains(client)) {
-            clients.add(client);
-        }
+        SQLInterface.enregistrerClient(client);
     }
 
     public static void retirerClient(CompteClient client) {
-        clients.remove(client);
+        SQLInterface.retirerClient(client);
     }
 
     public static boolean clientExiste(String nomUtilisateur) {
-        for (CompteClient client : clients) {
-            if (client.numeroCompte.equals(nomUtilisateur)) {
-                return true;
-            }
+        ResultSet rs = SQLInterface.avoirClient(nomUtilisateur);
+        try {
+            return rs.next();
+        } catch (SQLException e) {
+            System.err.println(
+                    "[SQLInterface.clientExiste]: Impossible de déterminer si le client existe :\n\t" + e.getMessage());
+            return false;
         }
+    }
 
-        return false;
+    public static void mettreÀJourClient(CompteClient client) {
+        SQLInterface.mettreÀJourClient(client);
     }
 }

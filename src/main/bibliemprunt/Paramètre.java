@@ -9,7 +9,7 @@ public class Paramètre {
     public static void initialiser() {
         nbMaxEmprunts = 5;
         duréeEmpruntDéfaut = 14; // 14 jours
-        duréeCompteBlocage = 300; // 5 minutes en secondes
+        duréeCompteBlocage = 300000; // 5 minutes en millisecondes
         authentificationEssaisMax = 3;
     }
 }
