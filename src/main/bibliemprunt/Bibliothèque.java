@@ -6,6 +6,7 @@ package bibliemprunt;
 import bibliemprunt.données.BanqueClient;
 import bibliemprunt.données.BanqueEmprunts;
 import bibliemprunt.données.BanqueLivres;
+import bibliemprunt.données.SQLInterface;
 import bibliemprunt.models.Emprunt;
 
 import java.util.Scanner;
@@ -26,6 +27,7 @@ public class Bibliothèque {
         System.out.println("Initialisation de la bibliothèque...");
 
         Paramètre.initialiser();
+        SQLInterface.initialiser();
         BanqueClient.initialiser();
         BanqueLivres.initialiser();
         BanqueEmprunts.initialiser();

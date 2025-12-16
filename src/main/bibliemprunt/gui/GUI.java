@@ -2,11 +2,14 @@ package bibliemprunt.gui;
 
 import java.sql.Date;
 import java.text.SimpleDateFormat;
+import java.time.Duration;
+import java.time.Instant;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Scanner;
 
 import bibliemprunt.Borne;
+import bibliemprunt.Paramètre;
 import bibliemprunt.données.BanqueEmprunts;
 import bibliemprunt.données.BanqueLivres;
 import bibliemprunt.models.CompteClient;
@@ -198,10 +201,10 @@ public class GUI {
                 scanner.nextLine();
                 break;
             case 1:
-            case 2:
+            case 3:
                 this.étatGUI = ÉtatGUI.COMPTE_INCONNU;
                 break;
-            case 3:
+            case 2:
                 this.étatGUI = ÉtatGUI.COMPTE_BLOQUÉ;
                 break;
             default:
@@ -222,26 +225,21 @@ public class GUI {
     }
 
     private void étatCompteBloqué() {
-        if (this.estÉtatInitialisation) {
-            System.out.println(
-                    "=== " + ANSI_ROUGE + "COMPTE BLOQUÉ" + ANSI_CLAIR + " ===\n");
-            this.estÉtatInitialisation = false;
-        }
+        effacerÉcran();
+        System.out.println(
+                "=== " + ANSI_ROUGE + "COMPTE BLOQUÉ" + ANSI_CLAIR + " ===\n");
 
-        if (scanner.hasNextLine()) {
+        CompteClient client = borne.avoirClient(this.nomUtilisateur);
+        Duration tempsBloque = Duration.ofMillis(
+                client.getTempsBloque() + Paramètre.duréeCompteBlocage - System.currentTimeMillis());
+        System.out.print(
+                "Temps restant : " + tempsBloque.toMinutes() + "min " + tempsBloque.toSecondsPart() + "sec"
+                        + "\nAppuyez sur q pour revenir à l'écran principal : ");
+
+        String in = scanner.nextLine();
+        if (in.toLowerCase().compareTo("q") == 0) {
             this.étatGUI = ÉtatGUI.ATTENTE_AUTENTIFICATION;
             this.estÉtatInitialisation = true;
-        }
-
-        effacerLigne();
-        Date tempsBloque = new Date(System.currentTimeMillis() - borne.getClientSession().getTempsBloque());
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy MM dd HH:mm:ss");
-        System.out.println("Temps restant : " + sdf.format(tempsBloque));
-
-        try {
-            Thread.sleep(1000);
-        } catch (Exception e) {
-            e.printStackTrace();
         }
     }
 
@@ -502,7 +500,7 @@ public class GUI {
                         ANSI_ROUGE + "--- NOMBRE MAXIMAL D'EMPRUNTS ATTEINTS ---" + ANSI_CLAIR + "\n" +
                         "\n" +
                         "Vous avez "
-                        + (this.borne.getClientSession().nbEmpruntsActifs() + this.borne.getEmpruntsEnCours().size())
+                        + this.borne.avoirEmpruntsActifs()
                         + " emprunts actifs.\n");
         scanner.nextLine();
         this.étatGUI = ÉtatGUI.EMPRUNTS;
@@ -577,7 +575,8 @@ public class GUI {
             Livre livre = emprunts.get(i).livre;
             reçus.append(i + ". " + livre.titre + "\t" + livre.RFID + "\t Date de retour : "
                     + sdf.format(new Date(
-                            emprunt.getDureeEmprunt() + (long) emprunt.dateEmprunt.getTime() * JOURS_EN_MILLIS)));
+                            emprunt.getDureeEmprunt() + (long) emprunt.dateEmprunt.getTime() * JOURS_EN_MILLIS))
+                    + "\n");
         }
 
         reçus.append(
