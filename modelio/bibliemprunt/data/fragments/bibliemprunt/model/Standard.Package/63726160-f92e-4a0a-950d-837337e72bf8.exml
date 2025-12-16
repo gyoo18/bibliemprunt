@@ -12,6 +12,172 @@
       <ATT name="Name"><![CDATA[bibliemprunt]]></ATT>
       <ATT name="status">1970354901745664</ATT>
     </ATTRIBUTES>
-    <DEPENDENCIES></DEPENDENCIES>
+    <DEPENDENCIES>
+      <COMP relation="OwnedBehavior">
+        <COMPID name="Interaction" mc="Standard.Interaction" uid="6c505ccf-0ea5-496f-8281-cb747a2bf75b"/>
+        <COMPID name="Communication Interaction" mc="Standard.CommunicationInteraction" uid="053ed421-362c-4a04-bb1e-34dbae0ee7c5"/>
+        <COMPID name="State Machine" mc="Standard.StateMachine" uid="1f6dd728-fa8d-4734-b732-5567f8367188"/>
+        <COMPID name="Interaction1" mc="Standard.Interaction" uid="1ab0503a-7619-40ec-b36b-5a1c255aec01"/>
+      </COMP>
+      <COMP relation="OwnedElement">
+        <COMPID name="Bibliothèque" mc="Standard.Class" uid="734bcfc5-4ac8-4a2f-a323-035e0bcf918c"/>
+        <COMPID name="Livre" mc="Standard.Class" uid="f250c4f8-3bb4-46d9-8b91-7e0faefc6600"/>
+        <COMPID name="BorneEmprunt" mc="Standard.Class" uid="e323486b-6fae-4710-be7a-54c8328b909a"/>
+        <COMPID name="BanqueLivres" mc="Standard.Class" uid="fc808c4d-7936-484b-ae3b-44c72960a04a"/>
+        <COMPID name="CompteClient" mc="Standard.Class" uid="4d1e60d9-f201-43fa-adc9-7b4d2eac1b16"/>
+        <COMPID name="BanqueEmprunts" mc="Standard.Class" uid="f378a06e-b3bb-43a0-a8a0-a3ff48649df9"/>
+        <COMPID name="Emprunt" mc="Standard.Class" uid="8a52eef6-dcad-4213-93d8-beccf9853a1c"/>
+        <COMPID name="BanqueClients" mc="Standard.Class" uid="512db497-d168-4adb-91d0-bc6bcbc4054d"/>
+        <COMPID name="Paramètres" mc="Standard.Class" uid="85747411-28bd-46f6-a959-0a19a0711deb"/>
+        <COMPID name="Serveur Interface" mc="Standard.Class" uid="7678ec3b-bfbe-450c-bdd7-9ff98142e516"/>
+        <COMPID name="Page HTML" mc="Standard.Class" uid="ed518fc8-2d0d-47c1-a24a-5e44699a060b"/>
+        <COMPID name="Interface Graphique" mc="Standard.Class" uid="13a00548-406d-4e64-95c6-6b1a882778c4"/>
+        <COMPID name="Page" mc="Standard.Class" uid="b743acd6-ed29-4a75-bac4-fbc6490c537d"/>
+        <COMPID name="Usine Page" mc="Standard.Class" uid="9d932479-d99b-47a3-b0ce-8813f73905be"/>
+        <COMPID name="Swing" mc="Standard.Package" uid="6c5cb0f2-791d-43f6-8ada-b8ffeb57d08a"/>
+        <COMPID name="Java" mc="Standard.Package" uid="96d77815-f831-43a2-866a-a8a750875287"/>
+        <COMPID name="Client" mc="Standard.Class" uid="351e7215-8ba6-47f0-8afc-f23a146f581b"/>
+        <COMPID name="SQLInterface" mc="Standard.Class" uid="14d94154-f056-417d-84fd-394978a555be"/>
+        <COMPID name="SQLInterface" mc="Standard.Class" uid="c0286f78-2a81-4971-ad4a-6f087756164e"/>
+        <OBJECT>
+          <ID name="ÉtatGUI" mc="Standard.Enumeration" uid="e4cc2200-8816-4c63-824f-658b064b335a"/>
+          <ATTRIBUTES>
+            <ATT name="IsElementary">true</ATT>
+            <ATT name="IsAbstract">false</ATT>
+            <ATT name="IsLeaf">false</ATT>
+            <ATT name="IsRoot">false</ATT>
+            <ATT name="Visibility">Public</ATT>
+            <ATT name="Name"><![CDATA[ÉtatGUI]]></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <COMP relation="Value">
+              <OBJECT>
+                <ID name="ATTENTE_AUTHENTIFICATION" mc="Standard.EnumerationLiteral" uid="dbaa5c72-781d-4d7c-a5c2-62831a1e80ea"/>
+                <ATTRIBUTES>
+                  <ATT name="Name"><![CDATA[ATTENTE_AUTHENTIFICATION]]></ATT>
+                  <ATT name="status">1970354901745664</ATT>
+                </ATTRIBUTES>
+                <DEPENDENCIES></DEPENDENCIES>
+              </OBJECT>
+              <OBJECT>
+                <ID name="AUTHENTIFICATION" mc="Standard.EnumerationLiteral" uid="f43ae875-c43f-401c-af28-78ec368ac06e"/>
+                <ATTRIBUTES>
+                  <ATT name="Name"><![CDATA[AUTHENTIFICATION]]></ATT>
+                  <ATT name="status">1970354901745664</ATT>
+                </ATTRIBUTES>
+                <DEPENDENCIES></DEPENDENCIES>
+              </OBJECT>
+              <OBJECT>
+                <ID name="COMPTE_INCONNU" mc="Standard.EnumerationLiteral" uid="214bc593-5b11-49f7-85de-e0985d7cff79"/>
+                <ATTRIBUTES>
+                  <ATT name="Name"><![CDATA[COMPTE_INCONNU]]></ATT>
+                  <ATT name="status">1970354901745664</ATT>
+                </ATTRIBUTES>
+                <DEPENDENCIES></DEPENDENCIES>
+              </OBJECT>
+              <OBJECT>
+                <ID name="COMPTE_BLOQUÉ" mc="Standard.EnumerationLiteral" uid="0f5cf774-3a9d-4759-8345-df0163754673"/>
+                <ATTRIBUTES>
+                  <ATT name="Name"><![CDATA[COMPTE_BLOQUÉ]]></ATT>
+                  <ATT name="status">1970354901745664</ATT>
+                </ATTRIBUTES>
+                <DEPENDENCIES></DEPENDENCIES>
+              </OBJECT>
+              <OBJECT>
+                <ID name="EMPRUNTS" mc="Standard.EnumerationLiteral" uid="55195c0b-8d33-4543-a985-ec611c8a823b"/>
+                <ATTRIBUTES>
+                  <ATT name="Name"><![CDATA[EMPRUNTS]]></ATT>
+                  <ATT name="status">1970354901745664</ATT>
+                </ATTRIBUTES>
+                <DEPENDENCIES></DEPENDENCIES>
+              </OBJECT>
+              <OBJECT>
+                <ID name="ANNULER_EMPRUNTS" mc="Standard.EnumerationLiteral" uid="63b5fc9c-c60d-4b34-9c27-48aebebac59f"/>
+                <ATTRIBUTES>
+                  <ATT name="Name"><![CDATA[ANNULER_EMPRUNTS]]></ATT>
+                  <ATT name="status">1970354901745664</ATT>
+                </ATTRIBUTES>
+                <DEPENDENCIES></DEPENDENCIES>
+              </OBJECT>
+              <OBJECT>
+                <ID name="ANNULER_TRANSACTION" mc="Standard.EnumerationLiteral" uid="6c6fa16c-6785-4369-8e47-b58c0e1242c3"/>
+                <ATTRIBUTES>
+                  <ATT name="Name"><![CDATA[ANNULER_TRANSACTION]]></ATT>
+                  <ATT name="status">1970354901745664</ATT>
+                </ATTRIBUTES>
+                <DEPENDENCIES></DEPENDENCIES>
+              </OBJECT>
+              <OBJECT>
+                <ID name="TRANSACTION_ANNULÉE" mc="Standard.EnumerationLiteral" uid="130ac9b7-ae85-4e88-a377-a67dff5c6f2d"/>
+                <ATTRIBUTES>
+                  <ATT name="Name"><![CDATA[TRANSACTION_ANNULÉE]]></ATT>
+                  <ATT name="status">1970354901745664</ATT>
+                </ATTRIBUTES>
+                <DEPENDENCIES></DEPENDENCIES>
+              </OBJECT>
+              <OBJECT>
+                <ID name="EMPRUNT_INVALIDE" mc="Standard.EnumerationLiteral" uid="4feb5e14-7077-4029-b2dd-727f4cb07e23"/>
+                <ATTRIBUTES>
+                  <ATT name="Name"><![CDATA[EMPRUNT_INVALIDE]]></ATT>
+                  <ATT name="status">1970354901745664</ATT>
+                </ATTRIBUTES>
+                <DEPENDENCIES></DEPENDENCIES>
+              </OBJECT>
+              <OBJECT>
+                <ID name="DEMANDER_REÇUS" mc="Standard.EnumerationLiteral" uid="e9a937d5-473c-42e2-891e-5efd9a5d0a10"/>
+                <ATTRIBUTES>
+                  <ATT name="Name"><![CDATA[DEMANDER_REÇUS]]></ATT>
+                  <ATT name="status">1970354901745664</ATT>
+                </ATTRIBUTES>
+                <DEPENDENCIES></DEPENDENCIES>
+              </OBJECT>
+              <OBJECT>
+                <ID name="AFFICHER_REÇUS" mc="Standard.EnumerationLiteral" uid="544259f8-d5eb-42db-9ffd-2205159afd7d"/>
+                <ATTRIBUTES>
+                  <ATT name="Name"><![CDATA[AFFICHER_REÇUS]]></ATT>
+                  <ATT name="status">1970354901745664</ATT>
+                </ATTRIBUTES>
+                <DEPENDENCIES></DEPENDENCIES>
+              </OBJECT>
+              <OBJECT>
+                <ID name="LIVRES_DISPONIBLES" mc="Standard.EnumerationLiteral" uid="5bd42a92-7c2d-4d27-952f-252b87ab9752"/>
+                <ATTRIBUTES>
+                  <ATT name="Name"><![CDATA[LIVRES_DISPONIBLES]]></ATT>
+                  <ATT name="status">1970354901745664</ATT>
+                </ATTRIBUTES>
+                <DEPENDENCIES></DEPENDENCIES>
+              </OBJECT>
+              <OBJECT>
+                <ID name="EMPRUNTS_ACTIFS" mc="Standard.EnumerationLiteral" uid="4e7c4a67-5509-4e42-aeee-7984e73c3495"/>
+                <ATTRIBUTES>
+                  <ATT name="Name"><![CDATA[EMPRUNTS_ACTIFS]]></ATT>
+                  <ATT name="status">1970354901745664</ATT>
+                </ATTRIBUTES>
+                <DEPENDENCIES></DEPENDENCIES>
+              </OBJECT>
+            </COMP>
+          </DEPENDENCIES>
+        </OBJECT>
+        <COMPID name="Bibliothèque" mc="Standard.Class" uid="5297e134-d00c-4cb9-8aea-94cb9580f356"/>
+        <COMPID name="Borne d'emprunt" mc="Standard.Class" uid="bf53a1a5-7c49-4b91-ac1a-8cc67fb8f7c1"/>
+        <COMPID name="Banque de Livres" mc="Standard.Class" uid="c2bb610e-5b4d-44dc-8445-c59cb2ec5100"/>
+        <COMPID name="Banque d'emprunt" mc="Standard.Class" uid="b681768c-142c-419c-a58c-37758578cf8b"/>
+        <COMPID name="Banque de clients" mc="Standard.Class" uid="f56a1587-2e2a-42db-8e45-a0b9a06e09cd"/>
+        <COMPID name="Livre" mc="Standard.Class" uid="f98941a3-9d0f-490f-82dd-45f92af304f3"/>
+        <COMPID name="Emprunt" mc="Standard.Class" uid="cb61f075-d178-4ad1-9737-4657d30d1d0f"/>
+        <COMPID name="Compte Client" mc="Standard.Class" uid="45403356-1edd-4bf0-947a-0a8df3747055"/>
+        <COMPID name="Client" mc="Standard.Class" uid="b06174ad-ad27-4899-83e7-27d6bf6dc5ea"/>
+        <COMPID name="Livres" mc="Standard.Class" uid="be422a19-0cc6-4a77-a898-c926ee5361d4"/>
+        <COMPID name="Emprunts" mc="Standard.Class" uid="b1268c84-874f-4f71-bc24-63ed6283baf5"/>
+        <COMPID name="Comptes Clients" mc="Standard.Class" uid="ce8b7d49-35d0-42d8-b27c-886ea3a78b02"/>
+        <COMPID name="Java" mc="Standard.Package" uid="3a4907a7-da49-48fe-a147-6be9d335f48b"/>
+      </COMP>
+      <COMP relation="Product">
+        <COMPID name="Modèle du domaine" mc="Standard.ClassDiagram" uid="b3469607-368f-4fbb-aa57-91b6a1c430bf"/>
+        <COMPID name="Diagramme de Classes HTML" mc="Standard.ClassDiagram" uid="93194287-86fa-408e-a405-caebf66ea321"/>
+        <COMPID name="Définition base SQL" mc="Standard.ClassDiagram" uid="755c4b8b-fabf-4e86-a42d-55d4295c96cc"/>
+      </COMP>
+    </DEPENDENCIES>
   </OBJECT>
 </EXT>
