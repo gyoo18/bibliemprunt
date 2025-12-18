@@ -48,12 +48,13 @@ public class CompteClient {
             return false;
         }
 
-        if (compteBloque && System.currentTimeMillis() > tempsBloque + Paramètre.duréeCompteBlocage) {
-            nbTentativesAuthentification = 0;
-            compteBloque = false;
-        } else {
-            bloquerCompte();
-            return false;
+        if (compteBloque) {
+            if (System.currentTimeMillis() > tempsBloque + Paramètre.duréeCompteBlocage) {
+                nbTentativesAuthentification = 0;
+                compteBloque = false;
+            } else {
+                return false;
+            }
         }
 
         this.nbTentativesAuthentification = 0;
