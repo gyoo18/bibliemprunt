@@ -60,16 +60,25 @@ public class Borne {
             return 1; // Le compte n'existe pas
         }
 
+        if (BanqueClient.avoirClient(numeroCompte).estcompteBloque()) {
+            return 2; // Le compte est bloqué
+        }
+
         CompteClient client = BanqueClient.authentifierClient(numeroCompte, NIP);
         if (client == null) {
             return 3; // Le NIP est mauvais
         }
-        if (client.estcompteBloque()) {
-            return 2; // Le compte est bloqué
-        }
         this.clientSession = client;
         this.empruntsEnCours.clear();
         return 0;
+    }
+
+    public CompteClient avoirClient(String nomCompte) {
+        return BanqueClient.avoirClient(nomCompte);
+    }
+
+    public int avoirEmpruntsActifs() {
+        return BanqueEmprunts.avoirNbEmprunts(clientSession) + empruntsEnCours.size();
     }
 
     /**
@@ -91,7 +100,7 @@ public class Borne {
         }
 
         // Vérifier que le client n'a pas atteint le max d'emprunts
-        int nbEmpruntsTotal = clientSession.nbEmpruntsActifs() + empruntsEnCours.size();
+        int nbEmpruntsTotal = BanqueEmprunts.avoirNbEmprunts(clientSession) + empruntsEnCours.size();
         if (nbEmpruntsTotal >= Paramètre.nbMaxEmprunts) {
             return 1; // Nombre maximal d'emprunts atteint.
         }
@@ -147,12 +156,12 @@ public class Borne {
     public void confirmerEmprunts() {
         for (Emprunt emprunt : empruntsEnCours) {
             BanqueEmprunts.enregistrerEmprunt(emprunt);
-            clientSession.enregistrerEmprunt(emprunt);
         }
         empruntsEnCours.clear();
     }
 
     public void fermerSession() {
+        BanqueClient.mettreÀJourClient(clientSession);
         this.clientSession = null;
         this.empruntsEnCours.clear();
     }
