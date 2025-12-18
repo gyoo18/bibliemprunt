@@ -51,7 +51,7 @@ public class CompteClient {
         if (compteBloque && System.currentTimeMillis() > tempsBloque + Paramètre.duréeCompteBlocage) {
             nbTentativesAuthentification = 0;
             compteBloque = false;
-        } else {
+        } else if (compteBloque) {
             bloquerCompte();
             return false;
         }
