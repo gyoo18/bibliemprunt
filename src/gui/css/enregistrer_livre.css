@@ -1,0 +1,243 @@
+.boîte-flottante form{
+    width: 30% ! important;
+}
+
+.boîte-flottante input{
+    max-width: 10em;
+    min-width: 5em;
+}
+
+.contrôles {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 2em;
+    width: 50%;
+    font-size: larger;
+
+    background-image: linear-gradient(45deg, #0d6d00, #a6f862);
+}
+
+.contrôles button{
+    margin: 0.5em;
+    padding: 1em;
+    width: 90%;
+
+    font-size: large;
+
+    border: 0;
+    border-radius: 1em;
+
+    box-shadow: 0 0.5em 1em #0003;
+}
+
+#empruntsActifs, #livresDisponibles{
+    background-image: linear-gradient(5deg, rgb(126, 190, 114) 0%, rgb(226, 226, 226) 50%, rgb(255, 255, 255) 100%);
+}
+
+#empruntsActifs:hover, #livresDisponibles:hover{
+    cursor: pointer;
+    background-image: linear-gradient(5deg, rgb(255, 255, 255) 0%, rgb(226, 226, 226) 50%, rgb(185, 197, 204) 100%);
+}
+
+#annulerTransaction {
+    background-image: linear-gradient(10deg, rgb(187, 0, 56) 0%, rgb(255, 0, 0) 50%, rgb(255, 145, 81) 100%);
+}
+
+#annulerTransaction:hover{
+    cursor: pointer;
+    background-image: linear-gradient(10deg, rgb(252, 101, 31), rgb(247, 1, 1));
+}
+
+#terminerTransaction {
+    background-image: linear-gradient(10deg, rgb(0, 115, 209), aqua);
+}
+
+#terminerTransaction:hover {
+    cursor: pointer;
+    background-image: linear-gradient(10deg, rgb(17, 161, 228), rgb(0, 166, 243));
+}
+
+.emprunts{
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    padding: 0;
+    margin: 0;
+    width: 70%;
+    background-image: linear-gradient(30deg, #c56041 0%, #daab85
+        50%,  #ffeedd 100%);
+}
+
+.emprunts form{
+    display: flex;
+    flex-direction: row;
+    padding: 1em;
+    justify-content: center;
+    align-items: center;
+    width: 100% !important;
+
+    background-image: none;
+
+    border-top: 2px solid #0003;
+}
+
+#empruntsEnCours{
+    display: flex;
+    flex-direction: column;
+    margin: 0.5em;
+    margin-bottom: 0;
+    flex-grow: 1;
+
+    overflow-y: scroll;
+}
+
+.emprunts input{
+    background-color: #f7c692;
+}
+
+.emprunt{
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    margin: 1em;
+    padding: 1em;
+    background-image: linear-gradient(5deg, #25bb11, #a6f862);;
+    
+    border-radius: 1em;
+    box-shadow: 0 0.5em 1em #0003;
+}
+
+.info{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-grow: 1;
+    margin:0;
+    padding: 0;
+}
+
+.info p{
+    margin: 0;
+    margin-right: 0.25em;
+    padding-right: 0.25em;
+    border-right: 1px solid #0006;
+}
+
+.emprunt button{
+    margin: 0;
+    width: 2em;
+    height: 2em;
+
+    background-image: linear-gradient(10deg, rgb(255, 0, 0) 0%, rgb(255, 145, 81) 100%);
+    border: 0;
+    border-radius: 35%;
+}
+
+.emprunt button:hover {
+    cursor: pointer;
+    background-image: linear-gradient(10deg, rgb(252, 101, 31), rgb(247, 1, 1));
+}
+
+#popup-annuler-transaction{
+    z-index: 4000 !important;
+}
+
+#popup-terminer-transaction{
+    z-index: 5000 !important;
+}
+
+.popup .options-boutons{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+}
+
+.options-boutons button{
+    display: flex;
+    position: relative;
+    padding: 0.25em;
+    margin-left: 2em;
+    width: auto;
+    height: auto;
+
+    border-radius: 0.5em;
+    box-shadow: 0 0.5em 1em #0003;
+}
+
+#annuler-transaction{
+    background-image: linear-gradient(10deg, rgb(187, 0, 56) 0%, rgb(255, 0, 0) 50%, rgb(255, 145, 81) 100%);
+}
+
+#annuler-transaction:hover {
+    background-image: linear-gradient(10deg, rgb(252, 101, 31), rgb(247, 1, 1));
+}
+
+#annuler-transaction-retour {
+    background-image: linear-gradient(10deg, rgb(0, 115, 209), aqua);
+}
+
+#annuler-transaction-retour:hover {
+    background-image: linear-gradient(10deg, rgb(17, 161, 228), rgb(0, 166, 243));
+}
+
+#terminer-transaction {
+    background-image: linear-gradient(10deg, rgb(187, 0, 56) 0%, rgb(255, 0, 0) 50%, rgb(255, 145, 81) 100%);
+}
+
+#terminer-transaction:hover {
+    background-image: linear-gradient(10deg, rgb(252, 101, 31), rgb(247, 1, 1));
+}
+
+#terminer-transaction-retour {
+    background-image: linear-gradient(10deg, rgb(0, 115, 209), aqua);
+}
+
+#terminer-transaction-retour:hover {
+    background-image: linear-gradient(10deg, rgb(17, 161, 228), rgb(0, 166, 243));
+}
+
+#déconnecter {
+    background-image: linear-gradient(10deg, rgb(187, 0, 56) 0%, rgb(255, 0, 0) 50%, rgb(255, 145, 81) 100%);
+}
+
+#déconnecter:hover {
+    background-image: linear-gradient(10deg, rgb(252, 101, 31), rgb(247, 1, 1));
+}
+
+#déconnecter-retour {
+    background-image: linear-gradient(10deg, rgb(0, 115, 209), aqua);
+}
+
+#déconnecter-retour:hover {
+    background-image: linear-gradient(10deg, rgb(17, 161, 228), rgb(0, 166, 243));
+}
+
+#demander-reçus-retour {
+    background-image: linear-gradient(10deg, rgb(187, 0, 56) 0%, rgb(255, 0, 0) 50%, rgb(255, 145, 81) 100%);
+}
+
+#demander-reçus-retour:hover {
+    background-image: linear-gradient(10deg, rgb(252, 101, 31), rgb(247, 1, 1));
+}
+
+#demander-reçus {
+    background-image: linear-gradient(10deg, rgb(0, 115, 209), aqua);
+}
+
+#demander-reçus:hover {
+    background-image: linear-gradient(10deg, rgb(17, 161, 228), rgb(0, 166, 243));
+}
+
+#afficher-reçus {
+    background-image: linear-gradient(10deg, rgb(0, 115, 209), aqua);
+}
+
+#afficher-reçus:hover {
+    background-image: linear-gradient(10deg, rgb(17, 161, 228), rgb(0, 166, 243));
+}

@@ -91,7 +91,7 @@ input{
     text-align: center;
 }
 
-#soumettre{
+.soumettre{
     margin: 0.5em;
     padding: 0.75em;
     font-size: larger;
@@ -102,7 +102,7 @@ input{
     font-weight: bold;
 }
 
-#soumettre:hover {
+.soumettre:hover {
     background-image: linear-gradient(10deg, rgb(17, 161, 228), rgb(0, 166, 243));
 }
 
@@ -132,35 +132,6 @@ input{
     }
 }
 
-#image{
-    display: grid;
-    width:50%;
-    margin: 0;
-    padding:0;
-    background-image: url("../assets/biblio.jpg");
-    background-size: cover;
-
-    box-shadow: 0 0 5em #0008 inset;
-
-    align-items: center;
-
-    animation-name: image-scroll;
-    animation-duration: 30s;
-    animation-iteration-count: infinite;
-    animation-direction: alternate-reverse;
-}
-
-#image-filtre{
-    margin: 0;
-    width:100%;
-    height: 100%;
-    background-image: linear-gradient(45deg, rgb(223, 79, 35), rgb(255, 240, 216));
-    mix-blend-mode: color;
-
-    grid-column: 1;
-    grid-row: 1;
-}
-
 .popup-couche{
     display: flex;
     justify-content: center;
@@ -174,8 +145,9 @@ input{
 .popup{
     display: flex;
     flex-direction: column;
-    align-items: right;
-    background-color: #FFF9;
+    align-items: center;
+    text-align: center;
+    background-color: rgba(247, 247, 247, 0.685);
     padding: 1em;
     border-radius: 2em;
 
@@ -186,6 +158,33 @@ input{
 }
 
 .popup button{
-    align-self: right;
-    max-width: fit-content;
+    display: flex;
+    position: absolute;
+    top: 0.75em;
+    right: 0.75em;
+    font-size: 1em;
+    width: 1em;
+    height: 1em;
+
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    background-color: #0000;
+    border: 0;
+    border-radius: 30%;
+}
+
+.popup button:hover{
+    cursor: pointer;
+    background-color: rgba(253, 70, 70, 0.2);
+}
+
+.popup h2{
+    color: rgb(255, 0, 0);
+}
+
+.erreur-texte{
+    margin-top: 2px;
+    color: red;
 }

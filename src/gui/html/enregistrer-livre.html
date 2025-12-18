@@ -5,7 +5,8 @@
     <meta charset="utf8" />
 
     <link rel="stylesheet" href="../css/main.css" />
-    <script source="javascript/"></script>
+    <link rel="stylesheet" href="../css/enregistrer_livre.css" />
+    <script src="../javascript/enregistrer-livre.js"></script>
 
     <!--Fira Sans-->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -19,20 +20,88 @@
     <div id="main">
       <h1><u>BIBLIEMPRUNT</u></h1>
       <div class="boîte-flottante">
-        <form>
-          <label for="num-compte">Numéro de Compte</label>
-          <input id="num-compte" type="text" />
-          <label for="NIP">NIP</label>
-          <input id="NIP" type="text" />
-          <input id="soumettre" type="submit" value="Authentifier" />
-        </form>
-        <div id="image">
-          <div id="image-filtre"></div>
+        <div class="emprunts">
+          <div id="empruntsEnCours">
+          </div>
+          <form id="emprunter">
+            <div style="display: flex; flex-direction: column; margin: 0; padding: 0">
+              <input id="RFID" type="text" placeholder="RFID">
+              <p id="erreur-rfid" class="erreur-texte" style="display: none;"></p>
+            </div>
+            <input class="soumettre" type="submit" value="Emprunter">
+          </form>
+        </div>
+        <div class="contrôles">
+          <button id="empruntsActifs">Emprunts actifs</button>
+          <button id="livresDisponibles">Livres disponibles</button>
+          <button id="annulerTransaction">Annuler la transaction</button>
+          <button id="terminerTransaction">Terminer la transaction</button>
         </div>
       </div>
     </div>
     <div id="arrière-plan">
       <div id="arrière-plan-couleur"></div>
+    </div>
+    <div id="popup-annuler-transaction" class="popup-couche" style="display: none;">
+      <div class="popup">
+        <button id="fermer-popup-annuler-transaction">x</button>
+        <div class="popup-contenu">
+          <h2>ANNULER LA TRANSACTION</h2>
+          <p>En annulant la transaction vous annulerez tous les emprunts que vous avez faits.</p>
+          <div class="options-boutons">
+            <button id="annuler-transaction-retour">NON</button>
+            <button id="annuler-transaction">OUI</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="popup-terminer-transaction" class="popup-couche" style="display: none">
+      <div class="popup">
+        <button id="fermer-terminer-transaction">x</button>
+        <div class="popup-contenu">
+          <h3>Terminer la transaction?</h3>
+          <div class="options-boutons">
+            <button id="terminer-transaction">OUI</button>
+            <button id="terminer-transaction-retour">NON</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="popup-demander-reçus" class="popup-couche" style="display: none">
+      <div class="popup">
+        <button id="fermer-demander-reçus">x</button>
+        <div class="popup-contenu">
+          <h3>Avoir un reçus?</h3>
+          <div class="options-boutons">
+            <button id="demander-reçus">OUI</button>
+            <button id="demander-reçus-retour">NON</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="popup-afficher-reçus" class="popup-couche" style="display: none">
+      <div class="popup">
+        <button id="fermer-afficher-reçus">x</button>
+        <div class="popup-contenu">
+          <h3>Reçus</h3>
+          <div id="reçus-texte"></div>
+          <div class="options-boutons">
+            <button id="afficher-reçus">Terminé</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="popup-déconnecter" class="popup-couche" style="display:none">
+      <div class="popup">
+        <button id="fermer-popup-déconnecter">x</button>
+        <div class="popup-contenu">
+          <h3>Fermer la session?</h3>
+          <div class="options-boutons">
+            <button id="déconnecter-retour">NON</button>
+            <button id="déconnecter">OUI</button>
+          </div>
+        </div>
+      </div>
     </div>
   </body>
 </html>

@@ -5,43 +5,51 @@
     <meta charset="utf8" />
 
     <link rel="stylesheet" href="../css/main.css" />
-    <script source="javascript/"></script>
+    <link rel="stylesheet" href="../css/authentification.css" />
+    <script src="../javascript/authentification.js"></script>
 
     <!--Fira Sans-->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-        href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-        rel="stylesheet">
+      href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <div id="main">
       <h1><u>BIBLIEMPRUNT</u></h1>
       <div class="boîte-flottante">
-        <form>
+        <form id="authentifier">
           <label for="num-compte">Numéro de Compte</label>
           <input id="num-compte" type="text" />
+          <p
+            id="erreur-num-compte"
+            class="erreur-texte"
+            style="display: none"
+          ></p>
           <label for="NIP">NIP</label>
           <input id="NIP" type="text" />
-          <input id="soumettre" type="submit" value="Authentifier" />
+          <p id="erreur-NIP" class="erreur-texte" style="display: none"></p>
+          <input class="soumettre" type="submit" value="Authentifier" />
         </form>
         <div id="image">
-            <div id="image-filtre"></div>
+          <div id="image-filtre"></div>
         </div>
       </div>
     </div>
     <div id="arrière-plan">
-        <div id="arrière-plan-couleur"></div>
+      <div id="arrière-plan-couleur"></div>
     </div>
-    <div class="popup-couche">
-        <div class="popup">
-            <button>x</button>
-            <div class="popup-contenu">
-                <h2>Votre compte a été bloqué</h2>
-                <p>Veuillez revenir dans</p>
-                <h3>15min</h3>
-            </div>
+    <div id="popup" class="popup-couche" style="display: none">
+      <div class="popup">
+        <button id="popup-fermer">x</button>
+        <div class="popup-contenu">
+          <h2 id="popup-titre">Votre compte a été bloqué</h2>
+          <p id="popup-texte">Veuillez revenir dans</p>
+          <h3 id="popup-temps">15min</h3>
         </div>
+      </div>
     </div>
   </body>
 </html>

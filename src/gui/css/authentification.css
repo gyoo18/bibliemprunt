@@ -1,0 +1,28 @@
+#image{
+    display: grid;
+    width:50%;
+    margin: 0;
+    padding:0;
+    background-image: url("../assets/biblio.jpg");
+    background-size: cover;
+
+    box-shadow: 0 0 5em #0008 inset;
+
+    align-items: center;
+
+    animation-name: image-scroll;
+    animation-duration: 30s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate-reverse;
+}
+
+#image-filtre{
+    margin: 0;
+    width:100%;
+    height: 100%;
+    background-image: linear-gradient(45deg, rgb(223, 79, 35), rgb(255, 240, 216));
+    mix-blend-mode: color;
+
+    grid-column: 1;
+    grid-row: 1;
+}
