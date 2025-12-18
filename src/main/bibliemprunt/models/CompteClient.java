@@ -48,22 +48,12 @@ public class CompteClient {
             return false;
         }
 
-<<<<<<< HEAD
-        if (compteBloque) {
-            if (System.currentTimeMillis() > tempsBloque + Paramètre.duréeCompteBlocage) {
-                nbTentativesAuthentification = 0;
-                compteBloque = false;
-            } else {
-                return false;
-            }
-=======
         if (compteBloque && System.currentTimeMillis() > tempsBloque + Paramètre.duréeCompteBlocage) {
             nbTentativesAuthentification = 0;
             compteBloque = false;
         } else if (compteBloque) {
             bloquerCompte();
             return false;
->>>>>>> SQL
         }
 
         this.nbTentativesAuthentification = 0;

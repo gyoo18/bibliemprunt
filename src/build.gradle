@@ -8,6 +8,7 @@
 plugins {
     // Apply the application plugin to add support for building a CLI application in Java.
     id 'application'
+	id 'distribution'
 }
 
 repositories {
@@ -46,6 +47,18 @@ sourceSets {
 application {
     // Define the main class for the application.
     mainClass = 'bibliemprunt.Bibliothèque'
+}
+
+distributions {
+    main{
+		distributionBaseName = 'Bibliemprunt'
+		contents{
+			from '../README.md'
+			into("README"){
+				from '../README/'
+			}
+		}
+    }
 }
 
 tasks.withType(AbstractTestTask).configureEach {
