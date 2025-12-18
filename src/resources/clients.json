@@ -19,6 +19,106 @@
       "nombreEmpruntsActifs": 0,
       "estActif": true,
       "dateInscription": "2023-03-22"
+    },
+    {
+      "numeroCompte": "martin456",
+      "nip": "5678",
+      "nom": "Martin",
+      "prenom": "Luc",
+      "courriel": "luc.martin@email.com",
+      "nombreEmpruntsActifs": 2,
+      "estActif": true,
+      "dateInscription": "2023-03-22"
+    },
+    {
+      "numeroCompte": "gagnon789",
+      "nip": "9012",
+      "nom": "Gagnon",
+      "prenom": "Sophie",
+      "courriel": "sophie.gagnon@email.com",
+      "nombreEmpruntsActifs": 0,
+      "estActif": true,
+      "dateInscription": "2023-05-10"
+    },
+    {
+      "numeroCompte": "roy101",
+      "nip": "3456",
+      "nom": "Roy",
+      "prenom": "Marc",
+      "courriel": "marc.roy@email.com",
+      "nombreEmpruntsActifs": 1,
+      "estActif": true,
+      "dateInscription": "2023-07-18"
+    },
+    {
+      "numeroCompte": "leblanc202",
+      "nip": "7890",
+      "nom": "Leblanc",
+      "prenom": "Élodie",
+      "courriel": "elodie.leblanc@email.com",
+      "nombreEmpruntsActifs": 3,
+      "estActif": true,
+      "dateInscription": "2023-09-05"
+    },
+    {
+      "numeroCompte": "bertrand303",
+      "nip": "2345",
+      "nom": "Bertrand",
+      "prenom": "Simon",
+      "courriel": "simon.bertrand@email.com",
+      "nombreEmpruntsActifs": 0,
+      "estActif": false,
+      "dateInscription": "2023-11-12"
+    },
+    {
+      "numeroCompte": "morin404",
+      "nip": "6789",
+      "nom": "Morin",
+      "prenom": "Camille",
+      "courriel": "camille.morin@email.com",
+      "nombreEmpruntsActifs": 1,
+      "estActif": true,
+      "dateInscription": "2024-01-30"
+    },
+    {
+      "numeroCompte": "dubois505",
+      "nip": "1235",
+      "nom": "Dubois",
+      "prenom": "Thomas",
+      "courriel": "thomas.dubois@email.com",
+      "nombreEmpruntsActifs": 4,
+      "estActif": true,
+      "dateInscription": "2024-03-15"
+    },
+    {
+      "numeroCompte": "pelletier606",
+      "nip": "4567",
+      "nom": "Pelletier",
+      "prenom": "Audrey",
+      "courriel": "audrey.pelletier@email.com",
+      "nombreEmpruntsActifs": 0,
+      "estActif": true,
+      "dateInscription": "2024-05-20"
+    },
+    {
+      "numeroCompte": "bouchard707",
+      "nip": "8901",
+      "nom": "Bouchard",
+      "prenom": "Philippe",
+      "courriel": "philippe.bouchard@email.com",
+      "nombreEmpruntsActifs": 2,
+      "estActif": true,
+      "dateInscription": "2024-07-08"
+    },
+    {
+      "numeroCompte": "girard808",
+      "nip": "3457",
+      "nom": "Girard",
+      "prenom": "Julie",
+      "courriel": "julie.girard@email.com",
+      "nombreEmpruntsActifs": 1,
+      "estActif": true,
+      "dateInscription": "2024-09-25"
     }
   ]
 }

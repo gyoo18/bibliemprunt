@@ -46,6 +46,10 @@ public class SQLInterface {
             System.err
                     .println("[SQLInterface.initialiser]: Impossible de créer la base de donnée : \n" + e.getMessage());
             return;
+        } catch (Exception e) {
+            System.err
+                    .println("[SQLInterface.initialiser]: Impossible de créer la base de donnée : \n" + e.getMessage());
+            return;
         }
 
         // Création des tables
