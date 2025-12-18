@@ -1,0 +1,12 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="bibliemprunt" version="4">
+  <OBJECT>
+    <ID name="bibliemprunt" mc="Infrastructure.DiagramSet" uid="e14ce379-0607-4df1-9cab-06a6f3d5dfd9"/>
+    <PID name="bibliemprunt" mc="Standard.Project" uid="11e168a6-4ebf-4852-9773-ad04b4b819fe"/>
+    <ATTRIBUTES>
+      <ATT name="Name"><![CDATA[bibliemprunt]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES></DEPENDENCIES>
+  </OBJECT>
+</EXT>

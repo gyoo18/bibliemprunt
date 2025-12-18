@@ -1,0 +1,24 @@
+{
+  "clients": [
+    {
+      "numeroCompte": "jean123",
+      "nip": "1234",
+      "nom": "Tremblay",
+      "prenom": "Jean",
+      "courriel": "jean.tremblay@email.com",
+      "nombreEmpruntsActifs": 0,
+      "estActif": true,
+      "dateInscription": "2023-01-15"
+    },
+    {
+      "numeroCompte": "jeanne456",
+      "nip": "4321",
+      "nom": "Gagnon",
+      "prenom": "Jeanne",
+      "courriel": "jeanne.gagnon@email.com",
+      "nombreEmpruntsActifs": 0,
+      "estActif": true,
+      "dateInscription": "2023-03-22"
+    }
+  ]
+}
